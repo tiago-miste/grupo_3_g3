@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "name": "grupo_3_ski",
   "version": "1.0.0",
   "description": "-> ropa y equipamiento de esqui y snowboard",
@@ -17,6 +18,8 @@
     "url": "https://github.com/tiago-miste/grupo_3_ski/issues"
   },
   "homepage": "https://github.com/tiago-miste/grupo_3_ski#readme",
+=======
+>>>>>>> 07b1cdc300b1e52b322f45b5400f2d85dd57ab8e
   "dependencies": {
     "express": "^4.18.2"
   }
