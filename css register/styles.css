@@ -1,0 +1,57 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #ebebeb;
+    text-align: -webkit-center;;
+}
+
+.contenedorPrincipal{
+    background-color: #fff;
+    
+    border-radius: 2%;
+    display: flex;
+    flex-direction: column;
+    width: 99%;
+}
+
+.logoCanskiRegister{
+    width: 15em;
+    
+}
+.logoRegister{
+    text-align: center;
+}
+
+.registro{
+    width: 90%;
+    align-self: center;
+    border: solid #112d2e 1px;
+}
+
+.form-group{
+width: 90%;
+}
+.btn-primary{
+    background-color: #1f1b49;
+    border-color: #112d2e;
+}
+.text-center{
+    color: #666;
+}
+.instagramLogo{
+    width: 3em;
+}
+.facebookLogo{
+    width: 3em;
+}
+
+@media screen and (min-width: 769px){
+    .contenedorPrincipal{
+        width: 85%;
+    }
+    .registro{
+        width: 50%;
+    }
+}
