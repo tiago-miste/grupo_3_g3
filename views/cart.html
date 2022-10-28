@@ -8,21 +8,20 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" rel="stylesheet"/>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.2/css/all.min.css" rel="stylesheet"/>
 
-    <link rel="stylesheet" href="/main.css">
+    <link rel="stylesheet" href="/css/main.css">
 
 
     <title>Carrito Compras</title>
 </head>
-
 <body>
   <header>
     <section>
         <div class="imagen-logo">
-            <a href=""><img src="/images/logoredux.jpg" alt="Logo de Canski"></a>
+            <a href=""><img src="/images/logo.jpg" alt="Logo de Canski"></a>
             </div>
     </section>
     
-    <form class="busqueda">
+    <form class="busqueda-cart">
       <input class="form-control"  type="text" placeholder="Buscar productos" aria-label="Search">    
     </form>  
 
@@ -47,14 +46,55 @@
   
 
   <section>
-    <img class="homeBanner" src="/public/images/home-banner.jpg" alt="Banner">
+    <img class="homeBanner" src="/images/home-banner.jpg" alt="Banner">
   </section>
     
 
     <main>
         <h1>MIS COMPRAS</h1>
     </main>
-
+    <div class="wrapper">
+            <div class="project">
+            <div class="shop">
+                <div class="box">
+                    <img src="/images/esquis.png">
+                    <div class="content">
+                        <h3>producto</h3>
+                        <h4>Price: $40</h4>
+                        <p class="unit">Quantity: <input name="" value="2"></p>
+                        <p class="btn-area"><i aria-hidden="true" class="fa fa-trash"></i> <span class="btn2">Remove</span></p>
+                    </div>
+                </div>
+                <div class="box">
+                    <img src="/images/casco.jpg">
+                    <div class="content">
+                        <h3>producto2</h3>
+                        <h4>Price: $40</h4>
+                        <p class="unit">Quantity: <input name="" value="1"></p>
+                        <p class="btn-area"><i aria-hidden="true" class="fa fa-trash"></i> <span class="btn2">Remove</span></p>
+                    </div>
+                </div>
+                <div class="box">
+                    <img src="/images/botas.jpg">
+                    <div class="content">
+                        <h3>producto3</h3>
+                        <h4>Price: $250</h4>
+                        <p class="unit">Quantity: <input name="" value="0"></p>
+                        <p class="btn-area"><i aria-hidden="true" class="fa fa-trash"></i> <span class="btn2">Remove</span></p>
+                    </div>
+                </div>
+            </div>
+            <div class="right-bar">
+                <p><span>Subtotal</span> <span>$120</span></p>
+                <hr>
+                <p><span>Tax (5%)</span> <span>$6</span></p>
+                <hr>
+                <p><span>Shipping</span> <span>$15</span></p>
+                <hr>
+                <p><span>Total</span> <span>$141</span></p><a href="#"><i class="fa fa-shopping-cart"></i>Checkout</a>
+            </div>
+        </div>
+    </div>
 
     <footer>
         <section class="piedepagina">
