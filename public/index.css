@@ -13,8 +13,12 @@ header {
         justify-content: space-around
 }
 
-.div-articulos {
-        width: 20%
+.div-articulos img {
+        width: 80px
+}
+
+.imagen-logo img {
+        width: 200;
 }
 
 .piedepagina {
