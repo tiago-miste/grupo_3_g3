@@ -13,12 +13,11 @@
 
     <title>Carrito Compras</title>
 </head>
-
 <body>
   <header>
     <section>
         <div class="imagen-logo">
-          <div class="logoRegister"><a href="/"><img class="logoCanskiRegister" src="/images/logoredux.jpg" alt="Logo Canski"></a></div>
+            <a href=""><img src="images/logoredux.jpg" alt="Logo de Canski"></a>
             </div>
     </section>
     
@@ -26,13 +25,7 @@
       <input class="form-control"  type="text" placeholder="Buscar productos" aria-label="Search">    
     </form>  
 
-   
-    <nav id="menu">
-      <button type="menu" id="butoMenu"><img src="https://img.icons8.com/ios-filled/50/000000/menu-squared-2.png"/></button>
-    </nav>
-
- 
-    <nav>  
+      <nav id="menu"> 
       <ul>
         <li><a href="/index.html">Home</a></li>
         <li><a href="/register">Crear Cuenta</a></li>
@@ -46,55 +39,121 @@
   
 
   <section>
-    <img class="homeBanner" src="/images/home-banner.jpg" alt="Banner">
+    <img class="homeBanner" src="images/home-banner.jpg" alt="Banner">
   </section>
     
+  <main>
+    <div class="basket">
+      <div class="basket-module">
+        <label for="promo-code">Escriba Codigo Promocional</label>
+        <input id="promo-code" type="text" name="promo-code" maxlength="5" class="promo-code-field">
+        <button class="promo-code-cta">Apply</button>
+      </div>
+      <div class="basket-labels">
+        <ul>
+          <li class="item item-heading">Item</li>
+          <li class="price">Price</li>
+          <li class="quantity">Quantity</li>
+          <li class="subtotal">Subtotal</li>
+        </ul>
+      </div>
+<!-- Producto uno  -->
+      <div class="basket-product">
+        <div class="item">
+          <div class="product-image">
+            <img src="images/botas.jpg" alt="Placholder Image 2" class="product-frame">
+          </div>
 
-    <main>
-        <h1>MIS COMPRAS</h1>
-    </main>
-    <div class="wrapper">
-            <div class="project">
-            <div class="shop">
-                <div class="box">
-                    <img src="/images/esquis.png">
-                    <div class="content">
-                        <h3>producto</h3>
-                        <h4>Price: $40</h4>
-                        <p class="unit">Quantity: <input name="" value="2"></p>
-                        <p class="btn-area"><i aria-hidden="true" class="fa fa-trash"></i> <span class="btn2">Remove</span></p>
-                    </div>
-                </div>
-                <div class="box">
-                    <img src="/images/casco.jpg">
-                    <div class="content">
-                        <h3>producto2</h3>
-                        <h4>Price: $40</h4>
-                        <p class="unit">Quantity: <input name="" value="1"></p>
-                        <p class="btn-area"><i aria-hidden="true" class="fa fa-trash"></i> <span class="btn2">Remove</span></p>
-                    </div>
-                </div>
-                <div class="box">
-                    <img src="/images/botas.jpg">
-                    <div class="content">
-                        <h3>producto3</h3>
-                        <h4>Price: $250</h4>
-                        <p class="unit">Quantity: <input name="" value="0"></p>
-                        <p class="btn-area"><i aria-hidden="true" class="fa fa-trash"></i> <span class="btn2">Remove</span></p>
-                    </div>
-                </div>
-            </div>
-            <div class="right-bar">
-                <p><span>Subtotal</span> <span>$120</span></p>
-                <hr>
-                <p><span>Tax (5%)</span> <span>$6</span></p>
-                <hr>
-                <p><span>Shipping</span> <span>$15</span></p>
-                <hr>
-                <p><span>Total</span> <span>$141</span></p><a href="#"><i class="fa fa-shopping-cart"></i>Checkout</a>
-            </div>
+          <div class="product-details">
+            <h1><strong><span class="item-quantity">4</span> x Marca </strong> Botas para Nieve </h1>
+            <p><strong>Blanco, Size 18</strong></p>
+            <p>Product Code - 232321939</p>
+          </div>
         </div>
+        <div class="price">26.00</div>
+        <div class="quantity">
+          <input type="number" value="4" min="1" class="quantity-field">
+        </div>
+        <div class="subtotal">104.00</div>
+        <div class="remove">
+          <button>Remover</button>
+        </div>
+      </div>
+<!-- Producto dos  -->
+      <div class="basket-product">
+        <div class="item">
+          <div class="product-image">
+            <img src="images/esquis.png" alt="Placholder Image 2" class="product-frame">
+          </div>
+
+          <div class="product-details">
+            <h1><strong><span class="item-quantity">4</span> x Marca </strong> Esquis </h1>
+            <p><strong>Azul/Negro, Talla 18</strong></p>
+            <p>Product Code - 232321939</p>
+          </div>
+        </div>
+        <div class="price">26.00</div>
+        <div class="quantity">
+          <input type="number" value="4" min="1" class="quantity-field">
+        </div>
+        <div class="subtotal">104.00</div>
+        <div class="remove">
+          <button>Remover</button>
+        </div>
+      </div>
+<!-- Producto tres  -->
+      <div class="basket-product">
+        <div class="item">
+          <div class="product-image">
+            <img src="images/casco.jpg" alt="Placholder Image 2" class="product-frame">
+          </div>
+          <div class="product-details">
+            <h1><strong><span class="item-quantity">1</span> x Marca</strong> Casco Proteccion</h1>
+            <p><strong>Negro, talla 10</strong></p>
+            <p>Product Code - 232321939</p>
+          </div>
+        </div>
+        <div class="price">26.00</div>
+        <div class="quantity">
+          <input type="number" value="1" min="1" class="quantity-field">
+        </div>
+        <div class="subtotal">26.00</div>
+        <div class="remove">
+          <button>Remover</button>
+        </div>
+      </div>
     </div>
+    <aside>
+      <div class="summary">
+        <div class="summary-total-items"><span class="total-items"></span> Items in your Bag</div>
+        <div class="summary-subtotal">
+          <div class="subtotal-title">Subtotal</div>
+          <div class="subtotal-value final-value" id="basket-subtotal">130.00</div>
+          <div class="summary-promo hide">
+            <div class="promo-title">Promotion</div>
+            <div class="promo-value final-value" id="basket-promo"></div>
+          </div>
+        </div>
+        <div class="summary-delivery">
+          <select name="delivery-collection" class="summary-delivery-selection">
+              <option value="0" selected="selected">Selecciona Opciones de Envio</option>
+             <option value="collection">Opcion 1</option>
+             <option value="first-class">Opcion 2</option>
+             <option value="second-class">Opcion 3</option>
+              </select>
+        </div>
+        <div class="summary-total">
+          <div class="total-title">Total</div>
+          <div class="total-value final-value" id="basket-total">130.00</div>
+        </div>
+        <div class="summary-checkout">
+          <button class="checkout-cta">Finalizar Compra</button>
+        </div>
+      </div>
+    </aside>
+  </main>
+  
+<!-- FOOTER -->
 
     <footer>
         <section class="piedepagina">
