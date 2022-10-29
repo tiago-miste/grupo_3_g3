@@ -1,33 +1,33 @@
-.imagen-logo {
-        justify-content: flex-start;
-              width: 50%
-        }
-         
-header {
-        display: flex;
-        justify-content: space-between
-} 
-        
+.imagen-logo img {
+        width: 300px;
+        justify-content: center
+        }        
+
+  header {
+          display: flex;
+          justify-content: space-between;
+  }
+
+  .top-header {display: flex;
+               justify-content: space-between}
+
+.search-bar {justify-content: flex-end}
+
+.categorias {display: flex;
+       justify-content: space-between}
+  
 .producto-precio {
-        display: flex;
-        justify-content: space-around
+  display: flex;
+  justify-content: space-between;
 }
+
+.section-articulos {display: flex}
 
 .div-articulos img {
-        width: 80px
-}
-
-.imagen-logo img {
-        width: 200;
+  width: 400px
 }
 
 .piedepagina {
-        display: flex;
-        justify-content: space-around
+  display: flex;
+  justify-content: space-around
 }
-
-
-
-
-
-
