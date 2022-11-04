@@ -7,7 +7,7 @@ app.use (express.static ("public"))
 const port = process.env.PORT || 3030;
 app.listen(port, () => console.log("Servidor corriendo en el puerto ${http://localhost:3030}"));
 
-const rutasMain = require("./routers/main.js")
+const rutasMain = require ("./routers/main.js")
 
 const rutasRegister = require ("./routers/register.js")
 
