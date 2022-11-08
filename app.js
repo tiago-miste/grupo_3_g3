@@ -20,9 +20,9 @@ const mainRouter = require('./routes/mainRouter'); // Rutas main
 app.use('/', mainRouter);
 
 //Pagina no encontrada
-app.use ( async (req, res, next) => {
-    res.status(404).render('notfound/notFound');
-})
+// app.use ( async (req, res, next) => {
+//     res.status(404).render('notfound/notFound');
+// })
 
 // ************ Creando servidor ************
 const port = process.env.PORT || 3002;
