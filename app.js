@@ -7,19 +7,21 @@ app.use (express.static ("public"))
 const port = process.env.PORT || 3030;
 app.listen(port, () => console.log("Servidor corriendo en el puerto ${http://localhost:3030}"));
 
-app.get ("/", (req, res) => {
-    res.sendFile (path.resolve(__dirname, "./views/index.html"))
-})
+const rutasMain = require ("./routers/main.js")
 
-app.get ("/register", (req, res) => {
-    res.sendFile (path.join(__dirname, "./views/register.html"))
-})
+const rutasRegister = require ("./routers/register.js")
 
-app.get ("/login", (req, res) => {
-    res.sendFile (path.join(__dirname, "./views/login.html"))
-})
+const rutasLogin = require ("./routers/login.js")
 
-app.get ("/cart", (req, res) => {
-    res.sendFile (path.join(__dirname, "./views/cart.html"))})
+const rutasCart = require ("./routers/cart.js")
+
+app.use ("/", rutasMain)
+
+app.use ("/register", rutasRegister)
+
+app.use ("/login", rutasLogin)
+
+app.use ("/cart", rutasCart)
+
 
 
