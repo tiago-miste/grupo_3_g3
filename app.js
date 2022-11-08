@@ -1,59 +1,29 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+// ************ Require's ************
+const express = require('express');
+const path = require('path');
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+// ************ express() - (don't touch) ************
+const app = express();
 
-var app = express();
-
-// view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'ejs');
-
-app.use(logger('dev'));
-app.use(express.json());
+// ************ Middlewares - (don't touch) ************
+app.use(express.static('public'));  // Necesario para los archivos estáticos en el folder /public
 app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.json());
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
+// ************ Template Engine - (don't touch) ************
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, '/views')); // Define la ubicación de la carpeta de las Vistas
 
-// catch 404 and forward to error handler
-app.use(function(req, res, next) {
-  next(createError(404));
-});
+// ************ Sistema de Rutas ************
+const mainRouter = require('./routes/mainRouter'); // Rutas main
 
-// error handler
-app.use(function(err, req, res, next) {
-  // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
+app.use('/', mainRouter);
 
-  // render the error page
-  res.status(err.status || 500);
-  res.render('error');
-});
+//Pagina no encontrada
+app.use ( async (req, res, next) => {
+    res.status(404).render('notfound/notFound');
+})
 
-module.exports = app;
-
-app.use (express.static ("public"))
-
-const rutasMain = require ("./routers/main.js")
-
-const rutasRegister = require ("./routers/register.js")
-
-const rutasLogin = require ("./routers/login.js")
-
-const rutasCart = require ("./routers/cart.js")
-
-app.use ("/", rutasMain)
-
-app.use ("/register", rutasRegister)
-
-app.use ("/login", rutasLogin)
-
-app.use ("/cart", rutasCart)
+// ************ Creando servidor ************
+const port = process.env.PORT || 3002;
+app.listen(port, () => { console.log(`Servidor corriendo en http://localhost:${port} 🤓👌`);})
