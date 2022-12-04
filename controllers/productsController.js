@@ -5,16 +5,14 @@ const productsFilePath = path.join(__dirname, '../src/data/products.json');
 let products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
 const controller = {
-    products: (req, res) => {
+    index: (req, res) => {
         //Listado de productos
         products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-        res.render('/products', {
-            products
-        })
+        res.render('products', {products})
     },
     create: (req, res) => {
         //Mostrar formulario para crear producto
-        res.render('/productsFormCreate');
+        res.render('productsFormCreate');
     },
     store: (req,res) => {
         // Guardado del producto
@@ -35,7 +33,7 @@ const controller = {
         //Detalles de un producto
         const id = req.params.id;
         const product = products.find(product => product.id == id);
-        res.render('/product', {
+        res.render('product', {
             product
         })
     },
@@ -43,7 +41,7 @@ const controller = {
         //Mostrar formulario para editar producto
         const id = req.params.id;
         const product = products.find(product => product.id == id);
-        res.render('/productsFormEdit', {
+        res.render('productsFormEdit', {
             product
         })
     },
