@@ -1,40 +1,28 @@
-<!-- Producto uno  -->
-<div class="basket-product">
-    <div class="item">
-      <div class="product-image">
-        <img src="images/botas.jpg" alt="Placholder Image 2" class="product-frame">
-      </div>
+<%- include('./partials/head.ejs') %>
 
-      <div class="product-details">
-        <h1> Botas para Nieve </h1>
-        <p><strong>Blanco, Size 18</strong></p>
-      </div>
-    </div>
-    <div class="price">$ 4000</div>
-  </div>
-<!-- Producto dos  -->
-  <div class="basket-product">
-    <div class="item">
-      <div class="product-image">
-        <img src="images/esquis.png" alt="Placholder Image 2" class="product-frame">
-      </div>
+    <body>
+        <%- include('./partials/header.ejs') %>
+            <div class="container main-container" style="margin-top: 100px;">
+                <h1>Productos<small style="font-weight: 300"></small></h1>
+                <hr>
 
-      <div class="product-details">
-        <h1> Esquis </h1>
-        <p><strong>Azul/Negro, Talla 18</strong></p>
-      </div>
-    </div>
-    <div class="price">$ 10000</div>
-  </div>
-<!-- Producto tres  -->
-  <div class="basket-product">
-    <div class="item">
-      <div class="product-image">
-        <img src="images/casco.jpg" alt="Placholder Image 2" class="product-frame">
-      </div>
-      <div class="product-details">
-        <h1> Casco Proteccion</h1>
-        <p><strong>Negro, talla 10</strong></p>
-      </div>
-    </div>
-    <div class="price">$ 1500</div>
+                <div class="row row-cols-1 row-cols-md-3 g-4">
+
+                    <% products.forEach(product=> { %>
+
+                        <div class="col">
+                            <div class="card animated fadeIn">
+                                <img src="/images/<%= product.img %> " class="card-img-top img-fluid" alt="<%- product.nombre %>">
+                                <div class="card-body">
+                                    <h4 class="card-title"><%= product.nombre %></h4>
+                                    <a href="/products/detail/<%= product.id %>" class="btn btn-outline-primary btn-block">Ver más...</a>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <% }); %>
+
+                </div>
+            </div>
+            <%- include('./partials/footer.ejs') %>
