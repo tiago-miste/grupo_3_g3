@@ -1,1 +1,23 @@
-[{}]
+[
+ {
+  "id": 1,
+  "nombre": "Botas de nieve",
+  "descripcion": "Talles 36 al 42, colores negro, azul y rojo",
+  "img": "botas.jpg",
+  "precio": "$4000"
+ },
+ {
+  "id": 2,
+  "nombre": "Esquis",
+  "descripcion": "Colores celeste, negro y rojo",
+  "img": "esquis.png",
+  "precio": "$10000"
+ },
+ {
+  "id": 3,
+  "nombre": "Casco",
+  "descripcion": "Color negro, varios tamaños",
+  "img": "casco.jpg",
+  "precio": "$1500"
+ }
+]
