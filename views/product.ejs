@@ -1,0 +1,37 @@
+<%- include('./partials/head.ejs') %>
+<%- include('./partials/header.ejs') %>
+<br>
+<br>
+    <body>
+        
+            <div class="container main-container" style="margin-top: 100px;">
+
+                <h1 class="animated fadeIn"><%= product.nombre.toUpperCase() %></h1>
+                <hr>
+
+                <div class="row animated fadeIn">
+                    <div class="col-md-4">
+                        <img src="/images/<%= product.img %> " class="img-fluid" [alt]="product.nombre" srcset="">
+                        <br><br>
+						</form>
+                        <!-- <a href="/products/detail/delete/<%= product.id %>" class="btn btn-outline-danger btn-block">Eliminar</a> -->
+                    </div>
+                    <div class="col-md-8">
+                           <%= product.descripcion %> 
+                        </p>
+                        <p>
+                            <%= product.precio %> 
+                         </p>
+                        <div>
+                            <a href="/products" class="btn btn-outline-success btn-block">Regresar</a>
+                            <a href="/products/detail/edit/<%= product.id %>" class="btn btn-outline-primary btn-block">Editar</a>
+                            <form action="/products/detail/delete/<%= product.id %>?_method=DELETE" method="POST" style="display: inline-flex ;margin-top: 2px;">
+                                <button type="submit" class="btn btn-outline-danger btn-block">Eliminar</button>
+                        </div>
+                    </div>
+
+                </div>
+            </body>
+            <br>
+            <br>
+                <%- include('./partials/footer.ejs') %>
