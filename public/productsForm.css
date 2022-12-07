@@ -1,0 +1,18 @@
+*{
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+body{
+
+    background-color: #ebebeb;
+    text-align: -webkit-center;;
+}
+
+.main-container{
+    height: 100%;
+  width: 100%;
+    margin-top: 1%;
+    
+
+}
