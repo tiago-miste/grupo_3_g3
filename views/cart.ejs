@@ -14,34 +14,10 @@
     <title>Carrito Compras</title>
 </head>
 <body>
-  <header>
-    <section>
-        <div class="imagen-logo">
-            <a href=""><img src="images/logoredux.jpg" alt="Logo de Canski"></a>
-            </div>
-    </section>
-    
-    <form class="busqueda-cart">
-      <input class="form-control"  type="text" placeholder="Buscar productos" aria-label="Search">    
-    </form>  
-
-      <nav id="menu"> 
-      <ul>
-        <li><a href="/index.html">Home</a></li>
-        <li><a href="/register">Crear Cuenta</a></li>
-        <li><a href="/login">Ingresar</a></li>
-        <li><a href="/cart">Mis Compras</a></li>
-        <li><a href="/help">Ayuda</a></li>
-        <li><a href="#ofertas">Ofertas</a></li>
-      </ul>
-    </nav>
-  </header>
-  
-
-  <section>
-    <img class="homeBanner" src="images/home-banner.jpg" alt="Banner">
-  </section>
-    
+<header>
+  <%- include('./partials/head') %>
+   
+</header>
   <main>
     <div class="basket">
       <div class="basket-module">
@@ -155,26 +131,7 @@
   
 <!-- FOOTER -->
 
-    <footer>
-        <section class="piedepagina">
-
-            <div>
-                <i class="fa-duotone fa-map-location-dot"></i>
-                <h4>Tiendas</h4>
-                <p><a href="">VER TIENDAS</a></p>
-            </div> 
-
-            <div>
-                <i class="fa-solid fa-users"></i>
-                <h4>REDES</h4>
-                <i class="fa-brands fa-facebook"></i>
-                <i class="fa-brands fa-instagram"></i>
-            </div>
-
-        </section>
-        <br>
-
-        <p>Copyright © 2009-2022 CANSKI S.A.</p>
+<footer> <%- include('./partials/footer.ejs') %> </footer>
 </body>
 </html>
 
