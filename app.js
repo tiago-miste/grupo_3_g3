@@ -1,12 +1,20 @@
 // ************ Require's ************
 const express = require('express');
 const path = require('path');
-const methodOverride = require('method-override')
+const methodOverride = require('method-override');
+const session = require('express-session');
+const cookies = require('cookie-parser');
 
 // ************ express() - (don't touch) ************
 const app = express();
 
 // ************ Middlewares - (don't touch) ************
+app.use(session({
+    secret: "Shhh, It's a secret",
+    resave: false,
+    saveUninitialized: false,
+}));
+app.use(cookies());
 app.use(express.static('public'));  // Necesario para los archivos estáticos en el folder /public
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());

@@ -3,6 +3,12 @@
   padding: 0;
   box-sizing: border-box;
 }
+.body{
+  width: 100%;
+}
+#banner{
+ width: 100vw;
+}
 
 header{
   display: flex;
@@ -102,6 +108,9 @@ footer div{
   width: 40%;
 }
 
+.productosListados{
+
+}
 footer div i,h4,a{
   margin: 5px;
 }
