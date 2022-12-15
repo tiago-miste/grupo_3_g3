@@ -1,28 +1,33 @@
-<head><%- include('./partials/head.ejs') %></head>
+<head><%- include('./partials/head.ejs') %>
+        <link rel="stylesheet" href="/index.css">
+</head>
+<body>
+    <header> <%- include('./partials/header.ejs') %></header>
+    <div class="container main-container" style="margin-top: 100px;">
+        <h1>Productos<small style="font-weight: 300"></small></h1>
+        <hr>
 
-    <body>
-        <%- include('./partials/header.ejs') %>
-            <div class="container main-container" style="margin-top: 100px;">
-                <h1>Productos<small style="font-weight: 300"></small></h1>
-                <hr>
+        <div class="row row-cols-1 row-cols-md-3 g-4">
 
-                <div class="row row-cols-1 row-cols-md-3 g-4">
+            <% products.forEach(product=> { %>
 
-                    <% products.forEach(product=> { %>
+                <div class="col">
+                    <div class="card animated fadeIn">
+                        <img src="/images/<%= product.img %> " class="card-img-top img-fluid"
+                            alt="<%- product.nombre %>">
+                        <div class="card-body">
+                            <h4 class="card-title">
+                                <%= product.nombre %>
+                            </h4>
+                            <a href="/products/detail/<%= product.id %>" class="btn btn-outline-primary btn-block">Ver
+                                más...</a>
 
-                        <div class="col">
-                            <div class="card animated fadeIn">
-                                <img src="/images/<%= product.img %> " class="card-img-top img-fluid" alt="<%- product.nombre %>">
-                                <div class="card-body">
-                                    <h4 class="card-title"><%= product.nombre %></h4>
-                                    <a href="/products/detail/<%= product.id %>" class="btn btn-outline-primary btn-block">Ver más...</a>
-
-                                </div>
-                            </div>
                         </div>
-
-                        <% }); %>
-
+                    </div>
                 </div>
-            </div>
-           <footer> <%- include('./partials/footer.ejs') %> </footer>
+
+                <% }); %>
+
+        </div>
+    </div>
+    <footer> <%- include('./partials/footer.ejs') %> </footer>
