@@ -1,23 +1,73 @@
 [
  {
-  "id": 1,
-  "nombre": "Botas de nieve",
-  "descripcion": "Talles 36 al 42, colores negro, azul y rojo",
-  "img": "botas.jpg",
-  "precio": "$4000"
+  "id": "1",
+  "nombre": "Casco",
+  "descripcion": "Color negro",
+  "img": "casco.jpg",
+  "precio": "$1500"
  },
  {
-  "id": 2,
+    "id": 2,
+    "nombre": "Gorro",
+    "descripcion": "Color negro, rojo y azul",
+    "img": "gorro.jpg",
+    "precio": "$2200"
+   },
+ {
+  "id": "3",
+  "nombre": "Antiparras",
+  "descripcion": "Armazón ajustable",
+  "img": "antiparras.jpg",
+  "precio": "$6000"
+ },
+ {
+  "id": "4",
+  "nombre": "Guantes de esqui",
+  "descripcion": "Color negro. Talle S, M, L y XL",
+  "img": "guantes-ski.jpg",
+  "precio": "$6000"
+ },
+ {
+    "id": "5",
+    "nombre": "Campera de esqui",
+    "descripcion": "Colores celeste, azul y rojo. Talles S, M, L y XL",
+    "img": "campera_ski.jpg",
+    "precio": "$30000"
+   },
+   {
+    "id": "6",
+    "nombre": "Pantalón de esquí hombre",
+    "descripcion": "Color gris o negro. Talles S, M, L o XL",
+    "img": "pantalon_hombre_ski.jpg",
+    "precio": "$25000"
+   },
+   {
+    "id": "7",
+    "nombre": "Pantalon de esqui mujer",
+    "descripcion": "Color rosa o rojo. Talles S, M, L o XL",
+    "img": "pantalon_mujer_ski.jpg",
+    "precio": "$25000"
+   },
+   {
+    "id": "8",
+    "nombre": "Botas de nieve",
+    "descripcion": "Talles 36 al 42, colores negro, azul y rojo",
+    "img": "botas.jpg",
+    "precio": "$4000"
+   }, 
+ {
+  "id": "9",
+  "nombre": "Bastones de esqui",
+  "descripcion": "Colores rojo, azul y verde. Tamaño unico",
+  "img": "baston-esqui.jpg",
+  "precio": "$15000"
+ },
+ {
+  "id": "10",
   "nombre": "Esquis",
   "descripcion": "Colores celeste, negro y rojo",
   "img": "esquis.png",
   "precio": "$10000"
- },
- {
-  "id": 3,
-  "nombre": "Casco",
-  "descripcion": "Color negro, varios tamaños",
-  "img": "casco.jpg",
-  "precio": "$1500"
  }
+ 
 ]
