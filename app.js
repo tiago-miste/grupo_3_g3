@@ -25,10 +25,10 @@ app.use(express.static(path.resolve(__dirname, './public')));
 app.use(express.urlencoded({ extended: false }));
 
 const mainRouter = require('./routes/mainRouter')
-const productsRoutes = require('./routes/productsRoutes');
+const productsRouter = require('./routes/productsRouter');
 
 app.use('/', mainRouter);
-app.use(productsRoutes);
+app.use(productsRouter);
 
 app.use ( async (req, res, next) => {
     res.status(404).render('notfound/notFound');
