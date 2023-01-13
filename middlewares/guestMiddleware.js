@@ -5,12 +5,4 @@ function guestMiddleware(req, res, next) {
     next();
 }
 
-function guestMiddleware(req, res, next) {
-    if (res.session.userLogged) {
-        return res.redirect("/user/profile")
-    } else{
-        next()
-    }
-}
-
 module.exports = guestMiddleware;
