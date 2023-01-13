@@ -6,7 +6,7 @@ const productsController = require('../controllers/productsController')
 
 const uploadFile = require('../middlewares/multerMiddleware')
 
-router.get('/', productsController.index)
+router.get('/', productsController.products)
 router.get('/create', productsController.create)
 router.post('/', uploadFile.single('imgFile'), productsController.store)
 router.get('/detail/:id', productsController.detail)
