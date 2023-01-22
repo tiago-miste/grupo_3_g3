@@ -4,9 +4,6 @@ const router = express.Router();
 
 // ************ Controller Require ************
 
-const mainController = require('../controllers/mainController');
-
-
 const mainController = require('../src/controllers/mainController');
 
 router.get('/', mainController.index);
