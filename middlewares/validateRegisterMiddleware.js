@@ -6,7 +6,9 @@ module.exports = [
     body('email')
     .notEmpty().withMessage('Tienes que escribir un email').bail()
     .isEmail().withMessage('Tienes que escribir un formato de email valido'),
-    body('password').notEmpty().withMessage('Tienes que escribir una contraseña'),
+    body('password')
+    .notEmpty().withMessage('Tienes que escribir una contraseña')
+    .isLength({min: 8}).withMessage('La contraseña debe tener un minimo de 8 caracteres'),
     body('country').notEmpty().withMessage('Tienes que elegir un pais'),
     body('avatar').custom((value, { req }) => {
         let file = req.file;
