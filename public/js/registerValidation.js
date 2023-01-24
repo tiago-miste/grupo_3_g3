@@ -12,6 +12,8 @@ window.onload = function() {
         let apellido = document.querySelector('#apellido')
         let email = document.querySelector('#email')
         let password = document.querySelector('#password')
+        let direccion = document.querySelector('#direccion')
+        let fecha = document.querySelector('#fecha')
 
         if (usuario.value == ""){
             errores.push('El usuario no puede estar vacio')
@@ -62,12 +64,34 @@ window.onload = function() {
         }else{
             email.classList.remove('is-invalid')
         }
+
+        /*if (/^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/.test(email.value)){
+            email.classList.remove('is-invalid')
+        }else{
+           
+            errores.push('El email debe ser valido')
+            email.classList.add('is-invalid')
+        }*/
+
+        if (direccion.value == ""){
+            errores.push('La dirección no puede estar vacia')
+            direccion.classList.add('is-invalid')
+        }else{
+            direccion.classList.remove('is-invalid')
+        }
         
         if (password.value == ""){
             errores.push('El password no puede estar vacio')
             password.classList.add('is-invalid')
         }else{
             password.classList.remove('is-invalid')
+        }
+
+        if (fecha.value == ""){
+            errores.push('La fecha no puede estar vacia')
+            fecha.classList.add('is-invalid')
+        }else{
+            fecha.classList.remove('is-invalid')
         }
 
 
