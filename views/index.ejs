@@ -56,12 +56,12 @@
 </html>
  -->
 
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
     <%- include('./partials/head') %>
-    <link rel="stylesheet" href="/index.css">
+        <link rel="stylesheet" href="/index.css">
 </head>
 
 <body>
@@ -71,10 +71,56 @@
     </header>
 
     <main>
-        <div>
-            <img id="banner" src="/images/home-banner.jpg" alt="">
+        <!--slider-->
+        <div class="slider">
+            <div class="slides">
+                <input type="radio" name="radio-btn" id="radio1">
+                <input type="radio" name="radio-btn" id="radio2">
+                <input type="radio" name="radio-btn" id="radio3">
+                <input type="radio" name="radio-btn" id="radio4">
+                <!--imagenes-->
+                <div class="slide first">
+                    <img id="banner" src="/images/home-banner.jpg" alt="">
+                </div>
+                <div class="slide">
+                    <img id="banner" src="/images/home-banner-2.jpg" alt="">
+                </div>
+                <div class="slide">
+                    <img id="banner" src="/images/home-banner-3.jpg" alt="">
+                </div>
+                <div class="slide">
+                    <img id="banner" src="/images/home-banner-4.jpg" alt="">
+                </div>
+                <!---fin de imagenes-->
+                <!--automatic-->
+                <div class="navigation-auto">
+                    <div class="auto-btn1"></div>
+                    <div class="auto-btn2"></div>
+                    <div class="auto-btn3"></div>
+                    <div class="auto-btn4"></div>
+                </div>
+                <!--automatic fin-->
+            </div>
+            <!--manual-->
+            <div class="navigation-manual">
+                <label for="radio1" class="manual-btn"></label>
+                <label for="radio2" class="manual-btn"></label>
+                <label for="radio3" class="manual-btn"></label>
+                <label for="radio4" class="manual-btn"></label>
+            </div>
+            <!--manual fin-->
         </div>
-
+        <script type="text/javascript">
+            var counter = 1;
+            setInterval(function(){
+                document.getElementById('radio' + counter).checked = true;
+                counter++;
+                if(counter > 4){
+                    counter = 1;
+                }
+            }, 5000)
+        </script>
+        <!---fin de slider-->
         <div class="container">
             <div class="single-product">
                 <div class="row">
@@ -84,10 +130,10 @@
                                 <img src="/images/esquis.png" alt="" id="product-main-image">
                             </div>
                             <div class="product-image-slider">
-                                <img src="/images/botas.jpg" alt=""  class="image-list">
-                                <img src="/images/campera_ski.jpg" alt=""  class="image-list">
-                                <img src="/images/casco.jpg" alt=""  class="image-list">
-                                <img src="/images/antiparras.jpg" alt=""  class="image-list">
+                                <img src="/images/botas.jpg" alt="" class="image-list">
+                                <img src="/images/campera_ski.jpg" alt="" class="image-list">
+                                <img src="/images/casco.jpg" alt="" class="image-list">
+                                <img src="/images/antiparras.jpg" alt="" class="image-list">
                             </div>
                         </div>
                     </div>
@@ -97,7 +143,7 @@
                             <span><a href="#">Product</a></span>
                             <span class="active">T-shirt</span>
                         </div>
-    
+
                         <div class="product">
                             <div class="product-title">
                                 <h2>Esquis</h2>
@@ -114,7 +160,7 @@
                                 <span class="offer-price">$99.00</span>
                                 <span class="sale-price">$129.00</span>
                             </div>
-    
+
                             <div class="product-details">
                                 <h3>Descripcion</h3>
                                 <p>Esquis que sirven para andar en la nieve porque para la pileta se usa otra cosa </p>
@@ -124,16 +170,16 @@
                                 <div class="size-layout">
                                     <input type="radio" name="size" value="S" id="1" class="size-input">
                                     <label for="1" class="size">S</label>
-    
+
                                     <input type="radio" name="size" value="M" id="2" class="size-input">
                                     <label for="2" class="size">M</label>
-    
+
                                     <input type="radio" name="size" value="L" id="3" class="size-input">
                                     <label for="3" class="size">L</label>
-    
+
                                     <input type="radio" name="size" value="XL" id="4" class="size-input">
                                     <label for="4" class="size">XL</label>
-    
+
                                     <input type="radio" name="size" value="XXL" id="5" class="size-input">
                                     <label for="5" class="size">XXL</label>
                                 </div>
@@ -141,28 +187,28 @@
                             <div class="product-color">
                                 <h4>Color</h4>
                                 <div class="color-layout">
-                                    <input type="radio" name="color"  value="black" class="color-input">
+                                    <input type="radio" name="color" value="black" class="color-input">
                                     <label for="black" class="black"></label>
-                                    <input type="radio" name="color"  value="red" class="color-input">
+                                    <input type="radio" name="color" value="red" class="color-input">
                                     <label for="red" class="red"></label>
-    
-                                    <input type="radio" name="color"  value="blue" class="color-input">
+
+                                    <input type="radio" name="color" value="blue" class="color-input">
                                     <label for="blue" class="blue"></label>
                                 </div>
                             </div>
                             <span class="divider"></span>
-    
+
                             <div class="product-btn-group">
-                                <div class="button buy-now"><i class='bx bxs-zap' ></i> Comprar ahora</div>
-                                <div class="button add-cart"><i class='bx bxs-cart' ></i> Agregar al Carrito</div>
-                                <div class="button heart"><i class='bx bxs-heart' ></i> Lista de Deseos</div>
+                                <div class="button buy-now"><i class='bx bxs-zap'></i> Comprar ahora</div>
+                                <div class="button add-cart"><i class='bx bxs-cart'></i> Agregar al Carrito</div>
+                                <div class="button heart"><i class='bx bxs-heart'></i> Lista de Deseos</div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    
+
         <!-- <h2>Articulos destacados</h2>
         <div class="productosListados">
             <section class="section-articulos">
