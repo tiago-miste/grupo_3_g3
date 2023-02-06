@@ -3,8 +3,17 @@
     padding: 0;
     box-sizing: border-box;
   }
-  .body{
-    width: 100%;
+
+  .main-container{
+    text-align: center;
+  }
+
+.text-center-header{
+  font-weight: bold;
+}
+
+  body{
+   width: 100%;
   }
  
   header{
@@ -105,4 +114,14 @@
     width: 40%;
   }
   
+  .is-valid {
+    color: #198754;
+    border-color: #198754;
+    background-color: rgba(25, 135, 84, 0.2);
+  }
   
+  .is-invalid {
+    color: #842029;
+    border-color: #842029;
+    background-color: rgba(132, 32, 41, 0.2);
+  }
