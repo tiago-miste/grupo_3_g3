@@ -104,5 +104,11 @@
     margin: 20px;
     width: 40%;
   }
+
+  .form-horizontal{
+    text-align: center;
+    height: 90%;
+    font-size: xx-large
+  }
   
   
