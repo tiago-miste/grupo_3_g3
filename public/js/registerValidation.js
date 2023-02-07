@@ -14,6 +14,8 @@ window.onload = function() {
         let password = document.querySelector('#password')
         let direccion = document.querySelector('#direccion')
         let fecha = document.querySelector('#fecha')
+        let imagen = document.querySelector('#imagenPerfil')
+
 
         if (usuario.value == ""){
             errores.push('El usuario no puede estar vacio')
@@ -92,6 +94,13 @@ window.onload = function() {
             fecha.classList.add('is-invalid')
         }else{
             fecha.classList.remove('is-invalid')
+        }
+
+        if (imagen.value == ""){
+            errores.push('Debes seleccionar una imagen')
+            imagen.classList.add('is-invalid')
+        }else{
+            imagen.classList.remove('is-invalid')
         }
 
 

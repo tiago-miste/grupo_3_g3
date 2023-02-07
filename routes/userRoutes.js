@@ -3,6 +3,7 @@ const validations = require("../middlewares/validateRegisterMiddleware");
 const guestMiddleware = require("../middlewares/guestMiddleware");
 const router = require("./productsRouter");
 const authMiddleware = require("../middlewares/authMiddleware");
+const usersController = require('../src/controllers/usersController')
 
 // formulario de registro
 router.get("/register", guestMiddleware, usersController.register);
@@ -21,4 +22,4 @@ router.get("/profile/", authMiddleware, usersController.profile);
 
 router.get("/logout/", usersController.logout)
 
-module.exports = userRoutes
+module.exports = router

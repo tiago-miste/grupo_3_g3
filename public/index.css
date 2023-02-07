@@ -240,9 +240,32 @@ footer div i,h4,a{
   height: 100vh;
 }
 
+.container-main-container{
+width: 100%;
+}
+
 .row{
   display: flex;
   gap: 20px;
+}
+
+.row-products{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.card-product{
+  text-align: center;
+}
+
+.card-product img{
+  width: 50%;
+}
+
+.col-product{
+  width: 45%;
 }
 
 .col-6{

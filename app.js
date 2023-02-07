@@ -26,9 +26,11 @@ app.use(express.urlencoded({ extended: false }));
 
 const mainRouter = require('./routes/mainRouter')
 const productsRouter = require('./routes/productsRouter');
+const userRoutes = require('./routes/userRoutes');
 
 app.use('/', mainRouter);
 app.use(productsRouter);
+app.use(userRoutes);
 
 app.use ( async (req, res, next) => {
     res.status(404).render('notfound/notFound');
