@@ -2,15 +2,15 @@ const { validationResult } = require('express-validator');
 var bcrypt = require('bcryptjs');
 const db = require('../database/models')
 const sequelize = db.sequelize;
+
 const User = db.User
+
 const controller = {
     register: (req, res) => {
         
         return res.render('register');
     },
     processRegister: async (req, res) => {
-       /* const resultValidation = validationResult(req);
-        console.log('prueba')
         const resultValidation = validationResult(req);
 
         if (resultValidation.errors.length > 0){
@@ -27,7 +27,6 @@ const controller = {
                 },
                 oldData: req.body
             });
-        }*/
         }
         const userTocreate = await User.create({
             usuario: req.body.usuario,
@@ -40,20 +39,26 @@ const controller = {
             img: req.file.filename
         })
         res.redirect('/login')
+
     },
+
     login: (req, res) => {
         return res.render('logIn')
     },
+
     loginProcess: (req, res) => {
         let userToLogin = User.findByField('email', req.body.email);
+
         if(userToLogin){
             let isOkThePassword = bcrypt.compareSync(req.body.password, userToLogin.password);
             if (isOkThePassword){
                 delete userToLogin.password;
                 req.session.userLogged = userToLogin;
+
                 if(req.body.remember_user) {
                     res.cookie('userEmail', req.body.email, { maxAge: (1000 * 60) * 2 })
                 }
+
                 return res.redirect('/user/profile');
             }
             return res.render('logIn', {
@@ -64,6 +69,7 @@ const controller = {
                 }
             })
         }
+
         return res.render('logIn', {
             errors: {
                 email: {
@@ -77,14 +83,17 @@ const controller = {
             user: req.session.userLogged
         });
     },
+
     logout: (req, res) => {
         res.clearCookie('userEmail');
         req.session.destroy();
         return res.redirect('/');
     },
+
     logout: (req, res) => {
         req.session.destroy();
         return res.redirect("/")
     }
 }
+
 module.exports = controller;
