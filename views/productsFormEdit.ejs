@@ -9,7 +9,7 @@
                         <div class="row animated fadeIn">
                             <div class="col-md-12">
                                 <div class="well well-sm">
-                                    <form class="form-horizontal" method="post" action="/products/detail/edit/<%= Product.id %>?_method=PUT" enctype="multipart/form-data">
+                                    <form class="form-horizontal" method="post" action="/products/update/<%= Product.id %>" enctype="multipart/form-data">
                                         <fieldset>
                                             <br>
                                             <legend class="text-center header">Actualizar producto</legend>
@@ -54,5 +54,5 @@
                         </div>
                     </div>
                 </div>
-
+                </body>
                 <%- include('./partials/footer.ejs') %>
