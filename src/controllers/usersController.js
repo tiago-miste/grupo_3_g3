@@ -10,9 +10,9 @@ const controller = {
         
         return res.render('register');
     },
-    processRegister: async (req, res) => {
-       /* const resultValidation = validationResult(req);
-        console.log('prueba')
+    processRegister: (req, res) => {
+        const resultValidation = validationResult(req);
+
         if (resultValidation.errors.length > 0){
             return res.render('register', {
                 errors: resultValidation.mapped(),
@@ -27,18 +27,14 @@ const controller = {
                 },
                 oldData: req.body
             });
-        }*/
-        const userTocreate = await User.create({
-            usuario: req.body.usuario,
-            nombre: req.body.nombre,
-            apellido: req.body.apellido,
-            email: req.body.email,
-            password: bcrypt.hashSync(req.body.password, 10),
-            direccion: req.body.direccion,
-            fecha_nacimiento: req.body.fechaDeNacimiento,
-            img: req.file.filename
-        })
-        res.redirect('/login')
+        }
+
+        let userToCreate = {
+            ...req.body,
+            password: bcryptjs.hashSync(req.body.password, 10),
+            avatar: req.file.filename
+        }
+        let userCreated = User.create(userToCreate);
 
     },
 
