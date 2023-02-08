@@ -1,49 +1,56 @@
 const { validationResult } = require('express-validator');
+var bcrypt = require('bcryptjs');
+const db = require('../database/models')
+const sequelize = db.sequelize;
 
-const User = require('../database/models/User');
+const User = db.User
 
 const controller = {
     register: (req, res) => {
         
         return res.render('register');
     },
-    processRegister: (req, res) => {
-        const resultValidation = validationResult(req);
-
+    processRegister: async (req, res) => {
+       /* const resultValidation = validationResult(req);
+        console.log('prueba')
         if (resultValidation.errors.length > 0){
             return res.render('register', {
                 errors: resultValidation.mapped(),
                 oldData: req.body
             });
         }
-        let userInDB = User.findByField('email', req.body.email);
-
-        if (userInDB) {
+            const userInDB = await User.findOne({ where: { email: req.body.email } })
+            if (userInDB) {
             return res.render('register', {
                 errors: {
                     msg: 'Este email ya está registrado'
                 },
                 oldData: req.body
             });
-        }
+        }*/
+        const userTocreate = await User.create({
+            usuario: req.body.usuario,
+            nombre: req.body.nombre,
+            apellido: req.body.apellido,
+            email: req.body.email,
+            password: bcrypt.hashSync(req.body.password, 10),
+            direccion: req.body.direccion,
+            fecha_nacimiento: req.body.fechaDeNacimiento,
+            img: req.file.filename
+        })
+        res.redirect('/login')
 
-        let userToCreate = {
-            ...req.body,
-            password: bcryptjs.hashSync(req.body.password, 10),
-            avatar: req.file.filename
-        }
-        let userCreated = User.create(userToCreate);
-
-        return res.redirect('/user/login');
     },
+
     login: (req, res) => {
         return res.render('logIn')
     },
+
     loginProcess: (req, res) => {
         let userToLogin = User.findByField('email', req.body.email);
 
         if(userToLogin){
-            let isOkThePassword = bcryptjs.compareSync(req.body.password, userToLogin.password);
+            let isOkThePassword = bcrypt.compareSync(req.body.password, userToLogin.password);
             if (isOkThePassword){
                 delete userToLogin.password;
                 req.session.userLogged = userToLogin;
