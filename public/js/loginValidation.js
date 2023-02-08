@@ -1,50 +1,41 @@
 window.onload = function() {
 
-let formulario = document.querySelector('.form');
+let formulario = document.querySelector('.formLogin');
 
 formulario.addEventListener("submit", (e) => { 
     e.preventDefault()
 
-    let errores = []
+    let errores = [];
 
-    let usuario = document.querySelector('#usuario')
-    let contrasena = document.querySelector('#contrasena')
+    let email = document.querySelector('#email')
+    let password = document.querySelector('#password')
 
-    if (usuario.value == ""){
-
-        errores.push("Este espacio no puede estar vacio")
-        usuario.classList.add('is-invalid')
-        usuario.classList.remove('is-valid')
-
+    if (email.value == ""){
+        errores.push('El email no puede estar vacio')
+        email.classList.add('is-invalid')
     }else{
-
-        usuario.classList.add("is-invalid")
-        usuario.classList.remove("is-valid")
+        email.classList.remove('is-invalid')
     }
-
-    if (contrasena.value == ""){
-
-        errores.push("Este espacio no puede estar vacio")
-        contrasena.classList.add('is-invalid')
-        contrasena.classList.remove('is-valid')
-
+    
+    if (password.value == ""){
+        errores.push('El password no puede estar vacio')
+        password.classList.add('is-invalid')
     }else{
-
-        contrasena.classList.add("is-invalid")
-        contrasena.classList.remove("is-valid")
+        password.classList.remove('is-invalid')
     }
 
 
-    if (errores.lenght > 0){
+    if (errores.length > 0){
         let ulErrores = document.querySelector('.errores')
         ulErrores.classList.add("alert-warning")
         ulErrores.innerHTML = ""
-        for (let i = 0; i< errores.length; i++){
-            ulErrores.innerHTML +=  `<li> ${errores[i]} </li>`
+        for (let i = 0; i < errores.length; i++) {
+            ulErrores.innerHTML += `<li> ${errores[i]} </li>`
         }
     }
     else {
         form.submit()
     }
+
 })
 }
