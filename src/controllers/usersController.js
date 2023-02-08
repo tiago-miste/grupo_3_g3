@@ -11,8 +11,8 @@ const controller = {
         return res.render('register');
     },
     processRegister: async (req, res) => {
-       /* const resultValidation = validationResult(req);
-        console.log('prueba')
+        const resultValidation = validationResult(req);
+
         if (resultValidation.errors.length > 0){
             return res.render('register', {
                 errors: resultValidation.mapped(),
@@ -27,7 +27,7 @@ const controller = {
                 },
                 oldData: req.body
             });
-        }*/
+        }
         const userTocreate = await User.create({
             usuario: req.body.usuario,
             nombre: req.body.nombre,
