@@ -24,17 +24,17 @@ function usuarios (sequelize, dataTypes) {
         email: {
             type: dataTypes.STRING
         },
-        contraseña: {
+        password: {
             type: dataTypes.STRING
         },
         direccion: {
             type: dataTypes.STRING
         },
-        FechaDeNacimiento: {
+        fecha_nacimiento: {
             type: dataTypes.DATE
         },
         img: {
-        type: dataTypes.BLOB
+        type: dataTypes.STRING(255)
         }}
 
     const config = {

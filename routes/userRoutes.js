@@ -9,7 +9,7 @@ const usersController = require('../src/controllers/usersController')
 router.get("/register", guestMiddleware, usersController.register);
 
 // procesar el registro
-router.post("/register", uploadFile.single("avatar"), validations, usersController.processRegister);
+router.post("/register/create", uploadFile.single("avatar"), validations, usersController.processRegister);
 
 //formualrio de login
 router.get("/login", guestMiddleware, usersController.login);
