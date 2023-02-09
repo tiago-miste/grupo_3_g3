@@ -33,6 +33,45 @@ edit: async function(req, res) {
     catch(e) {console.log(e)}
 },
 update: async function (req,res) { 
+
+    let productToEdit = await Products.findOne({
+        where: {
+            id: req.params.id
+        }
+    })
+        .then(product => {
+            data = product;
+            return data;
+        })
+
+        const bodyData = {
+            nombre: req.body.name,
+                descripcion: req.body.description,
+                precio: req.body.price,
+                img: req.file ? req.file.filename : productToEdit.img
+        }
+
+        res.send(bodyData)
+
+        Products.update(
+            {
+                nombre: req.body.name,
+                descripcion: req.body.description,
+                precio: req.body.price,
+                img: req.file ? req.file.filename : productToEdit.img
+            },
+            {
+                where: {
+                    id: req.params.id
+                }
+            }
+        )
+        .then(() => res.redirect('/products'))
+        //.catch(error => res.send(error)) 
+
+
+        /*res.send(products);
+
     try {const updated = await Products.update( 
         {nombre: req.body.name,
             descripcion: req.body.description,
@@ -44,7 +83,7 @@ update: async function (req,res) {
         catch (e) {console.log(e)}
         {
             where: {id:req.params.id}
-        }
+        }*/
 },
 delete: async function (req, res) {
     try

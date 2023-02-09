@@ -21,8 +21,8 @@ app.use(methodOverride('_method'))
 app.set('views', path.resolve(__dirname, './views'));
 app.set('view engine', 'ejs');
 
-app.use(express.static(path.resolve(__dirname, './public')));
-app.use(express.urlencoded({ extended: false }));
+//app.use(express.static(path.resolve(__dirname, './public')));
+//app.use(express.urlencoded({ extended: false }));
 
 const mainRouter = require('./routes/mainRouter')
 const productsRouter = require('./routes/productsRouter');
