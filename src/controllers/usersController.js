@@ -1,33 +1,33 @@
 const { validationResult } = require('express-validator');
 var bcrypt = require('bcryptjs');
-const db = require('../database/models')
+const db = require('../database/models');
+const session = require('express-session');
 const sequelize = db.sequelize;
+
 const User = db.User
+
 const controller = {
     register: (req, res) => {
-        
+
         return res.render('register');
     },
     processRegister: async (req, res) => {
-       /* const resultValidation = validationResult(req);
-        console.log('prueba')
         const resultValidation = validationResult(req);
 
-        if (resultValidation.errors.length > 0){
+        if (resultValidation.errors.length > 0) {
             return res.render('register', {
                 errors: resultValidation.mapped(),
                 oldData: req.body
             });
         }
-            const userInDB = await User.findOne({ where: { email: req.body.email } })
-            if (userInDB) {
+        const userInDB = await User.findOne({ where: { email: req.body.email } })
+        if (userInDB) {
             return res.render('register', {
                 errors: {
                     msg: 'Este email ya está registrado'
                 },
                 oldData: req.body
             });
-        }*/
         }
         const userTocreate = await User.create({
             usuario: req.body.usuario,
@@ -40,51 +40,72 @@ const controller = {
             img: req.file.filename
         })
         res.redirect('/login')
+
     },
+
     login: (req, res) => {
         return res.render('logIn')
     },
-    loginProcess: (req, res) => {
-        let userToLogin = User.findByField('email', req.body.email);
-        if(userToLogin){
+
+    loginProcess: async (req, res) => {
+        let userToLogin = await User.findOne({ where: { email: req.body.email } });
+        //if (!userToLogin){res.redirect("/notfound")}
+        if (userToLogin) {
             let isOkThePassword = bcrypt.compareSync(req.body.password, userToLogin.password);
-            if (isOkThePassword){
-                delete userToLogin.password;
+            if (isOkThePassword) {
+                userToLogin.password = undefined;
                 req.session.userLogged = userToLogin;
-                if(req.body.remember_user) {
-                    res.cookie('userEmail', req.body.email, { maxAge: (1000 * 60) * 2 })
+        
+                if (req.body.recordarUsuario) {
+                    res.cookie('userEmail', req.body.email, { maxAge: (1000 * 60) * 360 })
                 }
-                return res.redirect('/user/profile');
-            }
-            return res.render('logIn', {
-                errors: {
-                    email: {
-                        msg: 'Credenciales invalidas'
+
+                return res.redirect('/profile');
+            } else {
+                return res.render('logIn', {
+                    errors: {
+                        email: {
+                            msg: 'Credenciales invalidas'
+                        }
                     }
-                }
-            })
-        }
-        return res.render('logIn', {
-            errors: {
-                email: {
-                    msg: 'No se encuentra este email en nuestra base de datos'
-                }
+                })
             }
-        })
+        } else {
+            if (!req.body.email) {
+                return res.render('login', {
+                    errors:
+                    {
+                        email: {
+                            msg: "El Email es Obligatorio."
+                        }
+                    }
+                })
+            } else{ 
+                return res.render('logIn', {
+                    errors: {
+                        email: {
+                            msg: 'No se encuentra este email en nuestra base de datos'
+                        }
+                    }
+                })
+            }
+        }    
     },
     profile: (req, res) => {
+        console.log(req.session)
         return res.render('userProfile', {
             user: req.session.userLogged
         });
     },
+
     logout: (req, res) => {
         res.clearCookie('userEmail');
         req.session.destroy();
+        res.locals.isLogged = false
+        res.locals.userLogged = undefined
         return res.redirect('/');
-    },
-    logout: (req, res) => {
-        req.session.destroy();
-        return res.redirect("/")
     }
+
 }
+
 module.exports = controller;
