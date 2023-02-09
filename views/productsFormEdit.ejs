@@ -9,8 +9,13 @@
                         <div class="row animated fadeIn">
                             <div class="col-md-12">
                                 <div class="well well-sm">
-                                    <form class="form-horizontal" method="post" action="/products/update/<%= Product.id %>" enctype="multipart/form-data">
-                                        <fieldset>
+                                    <!-- <form class="form-horizontal" method="post" action="/products/detail/update/<%= Product.id %>?_method=PUT" enctype="multipart/form-data"> -->
+                                        <form
+                                        class="form-horizontal" 
+                    action="/products/detail/update/<%= Product.id %>?_method=PUT" 
+                    method="POST" id="form-create"
+                    enctype="multipart/form-data">
+                                        
                                             <br>
                                             <legend class="text-center header">Actualizar producto</legend>
                                             <br><br>
@@ -47,7 +52,7 @@
                                                     <button type="submit" class="btn btn-success btn-lg">Actualizar</button>
                                                 </div>
                                             </div>
-                                        </fieldset>
+                                
                                     </form>
                                 </div>
                             </div>
