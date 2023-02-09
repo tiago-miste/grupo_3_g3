@@ -44,14 +44,6 @@ update: async function (req,res) {
             return data;
         })
 
-        const bodyData = {
-            nombre: req.body.name,
-                descripcion: req.body.description,
-                precio: req.body.price,
-                img: req.file ? req.file.filename : productToEdit.img
-        }
-
-        res.send(bodyData)
 
         Products.update(
             {
@@ -67,23 +59,7 @@ update: async function (req,res) {
             }
         )
         .then(() => res.redirect('/products'))
-        //.catch(error => res.send(error)) 
-
-
-        /*res.send(products);
-
-    try {const updated = await Products.update( 
-        {nombre: req.body.name,
-            descripcion: req.body.description,
-            precio: req.body.price,
-            img: req.file.filename,
-        })
-        res.redirect('/products')
-        }
-        catch (e) {console.log(e)}
-        {
-            where: {id:req.params.id}
-        }*/
+        .catch(error => res.send(error)) 
 },
 delete: async function (req, res) {
     try
