@@ -16,10 +16,10 @@ router.post("/register/create", uploadFile.single("avatar"), validations, usersC
 router.get("/login", guestMiddleware, usersController.login);
 
 //procesar el login
-router.post("/login", validateLoginForm, usersController.loginProcess);
+router.post("/login/create", validateLoginForm, usersController.loginProcess);
 
 // perfil de usuario
-router.get("/profile/", authMiddleware, usersController.profile);
+router.get("/profile", authMiddleware, usersController.profile);
 
 router.get("/logout/", usersController.logout)
 

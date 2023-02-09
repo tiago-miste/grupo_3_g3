@@ -67,14 +67,6 @@ window.onload = function() {
             email.classList.remove('is-invalid')
         }
 
-        /*if (/^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/.test(email.value)){
-            email.classList.remove('is-invalid')
-        }else{
-           
-            errores.push('El email debe ser valido')
-            email.classList.add('is-invalid')
-        }*/
-
         if (direccion.value == ""){
             errores.push('La dirección no puede estar vacia')
             direccion.classList.add('is-invalid')

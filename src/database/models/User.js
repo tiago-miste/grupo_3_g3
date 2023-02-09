@@ -25,7 +25,7 @@ function usuarios (sequelize, dataTypes) {
             type: dataTypes.STRING
         },
         password: {
-            type: dataTypes.STRING
+            type: dataTypes.STRING(255)
         },
         direccion: {
             type: dataTypes.STRING

@@ -1,6 +1,7 @@
 const { validationResult } = require('express-validator');
 var bcrypt = require('bcryptjs');
-const db = require('../database/models')
+const db = require('../database/models');
+const session = require('express-session');
 const sequelize = db.sequelize;
 
 const User = db.User
@@ -48,18 +49,18 @@ const controller = {
 
     loginProcess: async (req, res) => {
         let userToLogin = await User.findOne({ where: { email: req.body.email } });
-
+        //if (!userToLogin){res.redirect("/notfound")}
         if (userToLogin) {
             let isOkThePassword = bcrypt.compareSync(req.body.password, userToLogin.password);
             if (isOkThePassword) {
-                delete userToLogin.password;
+                userToLogin.password = undefined;
                 req.session.userLogged = userToLogin;
-
-                if (req.body.remember_user) {
-                    res.cookie('userEmail', req.body.email, { maxAge: (1000 * 60) * 2 })
+        
+                if (req.body.recordarUsuario) {
+                    res.cookie('userEmail', req.body.email, { maxAge: (1000 * 60) * 360 })
                 }
 
-                return res.redirect('/user/profile');
+                return res.redirect('/profile');
             } else {
                 return res.render('logIn', {
                     errors: {
@@ -71,7 +72,7 @@ const controller = {
             }
         } else {
             if (!req.body.email) {
-                return res.render('/users/login', {
+                return res.render('login', {
                     errors:
                     {
                         email: {
@@ -91,6 +92,7 @@ const controller = {
         }    
     },
     profile: (req, res) => {
+        console.log(req.session)
         return res.render('userProfile', {
             user: req.session.userLogged
         });

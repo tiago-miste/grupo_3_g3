@@ -1,5 +1,7 @@
-const User = require('../src/database/models/User');
+const db = require('../src/database/models')
+const sequelize = db.sequelize;
 
+const User = db.User
 async function userLoggedMiddleware(req, res, next){
     res.locals.isLogged = false;
 

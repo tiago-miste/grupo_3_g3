@@ -25,12 +25,17 @@
 
         <br>
         <br>
+        <% if (locals.errors) { %>
+            <% for( let oneError in errors) { %>
+                <p style="color: darkred;"> <%= errors[oneError].msg %></p>
+            <% } %>
+        <% } %>
         <div class="registro">
             <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Ingresar</p>
             <div>
                 <ul class="errores"></ul>
             </div>
-            <form class="formLogin" action="">
+            <form class="formLogin" name="login" method="POST" action="/login/create">
                 <div class="form-group input-group">
                     <div class="input-group-prepend">
                         <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
@@ -43,10 +48,13 @@
                     </div>
                     <input id="password" class="form-control" placeholder="Contraseña" name="password" type="password">
                 </div>
+                <label for="form-checkbox">
+                    <input type="checkbox" name="recordarUsuario" id="recordarUsuario"> Recordar mi usuario
+                  </label>
                 <div class="form-group">
                     <button type="submit" class="btn btn-primary btn-block"> Ingresar  </button>
                 </div>
-
+                
                 <p class="text-center">No tenés cuenta? <a href="/register">Registrate</a> </p>
 
 

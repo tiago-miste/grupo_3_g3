@@ -35,7 +35,7 @@ app.use(productsRouter);
 app.use(userRoutes);
 
 app.use ( async (req, res, next) => {
-    res.status(404).render('notfound/notFound');
+    res.status(404).render('notfound');
 })
 
 const port = process.env.PORT || 3002;
