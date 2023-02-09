@@ -7,20 +7,20 @@ const User = db.User
 
 const controller = {
     register: (req, res) => {
-        
+
         return res.render('register');
     },
     processRegister: async (req, res) => {
         const resultValidation = validationResult(req);
 
-        if (resultValidation.errors.length > 0){
+        if (resultValidation.errors.length > 0) {
             return res.render('register', {
                 errors: resultValidation.mapped(),
                 oldData: req.body
             });
         }
-            const userInDB = await User.findOne({ where: { email: req.body.email } })
-            if (userInDB) {
+        const userInDB = await User.findOne({ where: { email: req.body.email } })
+        if (userInDB) {
             return res.render('register', {
                 errors: {
                     msg: 'Este email ya está registrado'
@@ -46,37 +46,49 @@ const controller = {
         return res.render('logIn')
     },
 
-    loginProcess: (req, res) => {
-        let userToLogin = User.findByField('email', req.body.email);
+    loginProcess: async (req, res) => {
+        let userToLogin = await User.findOne({ where: { email: req.body.email } });
 
-        if(userToLogin){
+        if (userToLogin) {
             let isOkThePassword = bcrypt.compareSync(req.body.password, userToLogin.password);
-            if (isOkThePassword){
+            if (isOkThePassword) {
                 delete userToLogin.password;
                 req.session.userLogged = userToLogin;
 
-                if(req.body.remember_user) {
+                if (req.body.remember_user) {
                     res.cookie('userEmail', req.body.email, { maxAge: (1000 * 60) * 2 })
                 }
 
                 return res.redirect('/user/profile');
-            }
-            return res.render('logIn', {
-                errors: {
-                    email: {
-                        msg: 'Credenciales invalidas'
+            } else {
+                return res.render('logIn', {
+                    errors: {
+                        email: {
+                            msg: 'Credenciales invalidas'
+                        }
                     }
-                }
-            })
-        }
-
-        return res.render('logIn', {
-            errors: {
-                email: {
-                    msg: 'No se encuentra este email en nuestra base de datos'
-                }
+                })
             }
-        })
+        } else {
+            if (!req.body.email) {
+                return res.render('/users/login', {
+                    errors:
+                    {
+                        email: {
+                            msg: "El Email es Obligatorio."
+                        }
+                    }
+                })
+            } else{ 
+                return res.render('logIn', {
+                    errors: {
+                        email: {
+                            msg: 'No se encuentra este email en nuestra base de datos'
+                        }
+                    }
+                })
+            }
+        }    
     },
     profile: (req, res) => {
         return res.render('userProfile', {
@@ -87,6 +99,8 @@ const controller = {
     logout: (req, res) => {
         res.clearCookie('userEmail');
         req.session.destroy();
+        res.locals.isLogged = false
+        res.locals.userLogged = undefined
         return res.redirect('/');
     }
 
