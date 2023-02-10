@@ -3,8 +3,9 @@
 </head>
 <body>
     <header> <%- include('./partials/header.ejs') %></header>
-    <div class="container-main-container" style="margin-top: 100px;">
-        <h1>Productos<small style="font-weight: 300"></small></h1>
+    <div class="container-main-container">
+        <div><img style="width: 100%;" src="/images/bannerproductos.jpg" alt=""></div>
+        <!-- <h1>Productos<small style="font-weight: 300"></small></h1> -->
         <hr>
 
         <div class="row-products">
@@ -12,7 +13,7 @@
             <% products.forEach(product=> { %>
 
                 <div class="col-product">
-                    <div class="card-product">
+                    <div class="card-product" >
                         <img src="/images/<%= product.img %> " class="card-img-top img-fluid"
                             alt="<%- product.nombre %>">
                         <div class="card-body">

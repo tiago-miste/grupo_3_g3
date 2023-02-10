@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <head>
     <%- include('./partials/head.ejs') %>
         <link rel="stylesheet" href="/productsForm.css">
@@ -20,20 +21,22 @@
                                 <fieldset>
                                     <br>
                                     <legend class="text-center header">Agregar producto</legend>
-                                    <br><br>
+                                    <br>
                                     <div class="form-group">
                                         <span class="col-md-1 col-md-offset-2 text-center"></span>
-                                        <div class="col-md-4">
+                                        <div style="margin: 2%;" class="col-md-4">
+                                            <h6>Nombre del Producto</h6>
                                             <input id="name" name="name" type="text" placeholder="Nombre.."
-                                                class="form-control" style="margin: 2%;">
+                                                class="form-control" style="margin: 2%; font-size: x-large;">
                                         </div>
                                     </div>
                                     <div class="form-group mt-2">
                                         <span class="col-md-1 col-md-offset-2 text-center"><i
                                                 class="fa fa-pencil-square-o bigicon"></i></span>
-                                        <div class="col-md-12">
-                                            <textarea class="form-control" id="description" name="description"
-                                                placeholder="Descripcion" rows="7"></textarea>
+                                        <div style="margin: 2%;" class="col-md-12">
+                                            <h6>Descripcion</h6>
+                                            <input type="text" class="form-control" id="description" name="description"
+                                                placeholder="Descripcion" rows="7" style="margin: 2%; font-size: x-large;">
                                         </div>
                                     </div>
 
@@ -41,22 +44,25 @@
                                     <div class="form-group mt-2">
                                         <span class="col-md-1 col-md-offset-2 text-center"><i
                                                 class="fa fa-envelope-o bigicon"></i></span>
-                                        <div class="col-md-4">
-                                            <input class="form-control" id="imgFile" name="imgFile" type="file">
+                                        <div style="margin: 2%;" class="col-md-4">
+                                            <h6>Imagen del Producto</h6>
+                                            <input class="form-control" id="imgFile" name="imgFile" type="file" style="margin: 2%; font-size: x-large;">
                                         </div>
                                     </div>
 
                                     <div class="form-group mt-2">
                                         <span class="col-md-1 col-md-offset-2 text-center"></span>
-                                        <div class="col-md-2">
+                                        <div style="margin: 2%;" class="col-md-2">
+                                            <h6>Precio</h6>
                                             <input id="price" name="price" type="text" placeholder="Precio"
-                                                class="form-control" style="margin: 2%;">
+                                                class="form-control" style="margin: 2%; font-size: x-large;">
                                         </div>
                                     </div>
 
                                     <div class="form-group mt-3 mb-3">
                                         <div class="col-md-12 text-center">
-                                            <button type="submit" class="btn btn-primary btn-lg" style="margin: 2%;">Crear</button>
+                                            <button type="submit" class="btn btn-primary btn-lg"
+                                                style="margin: 2%; font-size: x-large;">Crear</button>
                                         </div>
                                     </div>
                                 </fieldset>
@@ -68,6 +74,7 @@
         </div>
     </div>
     <script src="/js/productsFormValidation.js"></script>
+
 </body>
 <footer>
     <%- include('./partials/footer.ejs') %>
