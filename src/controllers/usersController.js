@@ -1,14 +1,13 @@
 const { validationResult } = require('express-validator');
 var bcrypt = require('bcryptjs');
 const db = require('../database/models');
-const session = require('express-session');
 const sequelize = db.sequelize;
 
 const User = db.User
 
 const controller = {
     register: (req, res) => {
-
+        console.log(req)
         return res.render('register');
     },
     processRegister: async (req, res) => {
@@ -44,20 +43,21 @@ const controller = {
     },
 
     login: (req, res) => {
+        console.log(req)
         return res.render('logIn')
     },
 
     loginProcess: async (req, res) => {
         let userToLogin = await User.findOne({ where: { email: req.body.email } });
-        //if (!userToLogin){res.redirect("/notfound")}
+        
         if (userToLogin) {
             let isOkThePassword = bcrypt.compareSync(req.body.password, userToLogin.password);
             if (isOkThePassword) {
-                userToLogin.password = undefined;
+                userToLogin.password = "********";
                 req.session.userLogged = userToLogin;
         
                 if (req.body.recordarUsuario) {
-                    res.cookie('userEmail', req.body.email, { maxAge: (1000 * 60) * 360 })
+                    res.cookie('userEmail', req.body.email, { maxAge: (1000 * 60) * 60 })
                 }
 
                 return res.redirect('/profile');
@@ -92,17 +92,56 @@ const controller = {
         }    
     },
     profile: (req, res) => {
-        console.log(req.session)
+    
         return res.render('userProfile', {
             user: req.session.userLogged
         });
     },
+
+    edit: async function(req, res) {
+        try
+        {const user = await User.findByPk(req.params.id)
+         res.render('userFormEdit', {user})
+        }
+        catch(e) {console.log(e)}
+    },
+
+    update: async function (req,res) { 
+        let userToEdit = await User.findOne({
+            where: {
+                id: req.params.id
+            }
+        })
+            .then(user => {
+                data = user;
+                return data;
+            })
+            
+    
+            User.update(
+                {
+                    usuario: req.body.usuario,
+                    direccion: req.body.direccion
+
+                },
+                {
+                    where: {
+                        id: req.params.id
+                    }
+                }
+            )
+            .then(() => res.redirect('/profile'))
+            .catch(error => res.send(error)) 
+    },
+
+
 
     logout: (req, res) => {
         res.clearCookie('userEmail');
         req.session.destroy();
         res.locals.isLogged = false
         res.locals.userLogged = undefined
+        res.clearCookie('connect.sid');
         return res.redirect('/');
     }
 

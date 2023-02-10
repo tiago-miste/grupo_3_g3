@@ -551,6 +551,64 @@ width: 100%;
   color: var(--accent-color);
 }
 
+/** perfiles**/
+.tuPerfil{
+  display: block;
+  text-align: center;
+}
+#imagenPerfil{
+  margin: 1%;
+  width: 50%;
+  border-radius: 10px;
+  border: solid #112d2e 2px;
+}
+.contenedorPerfil{
+  margin: 5%;
+  display: flex;
+}
+.contenedorNombre{
+  margin:2%;
+  width: 100%;
+}
+.contenedorPerfilSub{
+  display: flex;
+    background-color: #d4d3d3;
+    width: 50%;
+    border-radius: 2%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    border: solid #112d2e 1px;
+  }
+
+.contenedorPerfilSub2{
+  width: 50%;
+  border-radius: 2%;
+  
+}
+
+.detallesPerfil{
+  width: 40%;
+}
+.imagenMontaña{
+  width: 100%;
+  border-radius: 2%;
+  border: solid #112d2e 1px;
+}
+.contenedorBotonEditar{
+  margin-left: 10%;
+  margin-top: 2%;
+  margin-bottom: 2%;
+}
+.botonEdicionPerfil{
+  color: #ebebeb;
+  font-size: x-large;
+  background-color: #1f1b49;
+    border-color: #112d2e;
+}
+.bienvenidaUsuario{
+  width: 70%;
+  margin-left: 2%;
+}
 
 /** Responsive Mobile **/
 @media screen and (max-width:520px) {

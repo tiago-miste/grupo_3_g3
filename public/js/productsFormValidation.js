@@ -10,8 +10,8 @@ window.onload = function() {
         let nombre = document.querySelector('#name')
         let descripcion = document.querySelector('#description')
     
-        if (nombre.value.length < 5){
-            errores.push('El nombre debe tener 5 o mas caracteres')
+        if (nombre.value.length < 2){
+            errores.push('El nombre debe tener 2 o mas caracteres')
             nombre.classList.add('is-invalid')
         }else{
             nombre.classList.remove('is-invalid')

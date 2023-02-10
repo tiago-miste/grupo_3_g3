@@ -13,7 +13,7 @@ if(!file) {
     throw new Error('Tienes que subir una imagen');
 }
 if (!acceptedExtensions.includes(fileExtension)); {
-    throw new Error('Las extensiones de archivo permitidas son $(acceptedExtensions.join(','))');
+    throw new Error(`Las extensiones de archivo permitidas son $(acceptedExtensions.join(','))`);
 }
 return true
   })                

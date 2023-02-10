@@ -33,7 +33,7 @@ edit: async function(req, res) {
     catch(e) {console.log(e)}
 },
 update: async function (req,res) { 
-
+    console.log(req.body)
     let productToEdit = await Products.findOne({
         where: {
             id: req.params.id
@@ -61,17 +61,17 @@ update: async function (req,res) {
         .then(() => res.redirect('/products'))
         .catch(error => res.send(error)) 
 },
-delete: async function (req, res) {
-    try
-    {const Product = await Products.findByPk(req.params.id)
-     res.render('productsDelete', {Product})
-    }
-    catch(e) {console.log(e)}     
-},
+// delete: async function (req, res) {
+//     try
+//     {const Product = await Products.findByPk(req.params.id)
+//      res.render('productsDelete', {Product})
+//     }
+//     catch(e) {console.log(e)}     
+// },
 destroy: async function (req, res) {
     try {
         const deleted = await Products.destroy({where: {id:req.params.id}, force: true})
-        res.send(deleted)
+        res.redirect('/products')
     }
     catch (e) {console.log(e)}
 }

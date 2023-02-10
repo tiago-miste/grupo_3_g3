@@ -13,7 +13,7 @@ router.get("/register", guestMiddleware, usersController.register);
 router.post("/register/create", uploadFile.single("avatar"), validations, usersController.processRegister);
 
 //formualrio de login
-router.get("/login", guestMiddleware, usersController.login);
+router.get("/login", usersController.login);
 
 //procesar el login
 router.post("/login/create", validateLoginForm, usersController.loginProcess);
@@ -21,6 +21,11 @@ router.post("/login/create", validateLoginForm, usersController.loginProcess);
 // perfil de usuario
 router.get("/profile", authMiddleware, usersController.profile);
 
-router.get("/logout/", usersController.logout)
+//edicion de usuario
+router.get('/profile/edit/:id', usersController.edit);
+router.put('/profile/edit/update/:id', usersController.update);
+
+//logout
+router.post("/logout", usersController.logout)
 
 module.exports = router
