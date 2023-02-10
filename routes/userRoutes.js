@@ -3,6 +3,7 @@ const validations = require("../middlewares/validateRegisterMiddleware");
 const guestMiddleware = require("../middlewares/guestMiddleware");
 const router = require("./productsRouter");
 const authMiddleware = require("../middlewares/authMiddleware");
+const validateLoginForm = require("../middlewares/validateLoginForm")
 const usersController = require('../src/controllers/usersController')
 
 // formulario de registro
@@ -15,10 +16,10 @@ router.post("/register/create", uploadFile.single("avatar"), validations, usersC
 router.get("/login", guestMiddleware, usersController.login);
 
 //procesar el login
-router.post("/login", authMiddleware, usersController.loginProcess);
+router.post("/login/create", validateLoginForm, usersController.loginProcess);
 
 // perfil de usuario
-router.get("/profile/", authMiddleware, usersController.profile);
+router.get("/profile", authMiddleware, usersController.profile);
 
 router.get("/logout/", usersController.logout)
 

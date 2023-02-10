@@ -8,7 +8,7 @@ router.get('/products/detail/:id', productsController.detail);
 router.get('/products/create', productsController.add);
 router.post('/products', uploadFile.single("imgFile"), productsController.create);
 router.get('/products/detail/edit/:id', productsController.edit);
-router.post('/products/detail/update/:id', productsController.update);
+router.put('/products/detail/update/:id', uploadFile.single("imgFile"), productsController.update);
 router.get('/products/detail/delete/:id', productsController.delete);
 router.post('/products/detail/delete/:id', productsController.destroy);
 
