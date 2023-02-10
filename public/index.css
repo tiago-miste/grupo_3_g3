@@ -251,6 +251,7 @@ width: 100%;
 
 .row-products{
   width: 100%;
+  margin-top: 5%;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -258,11 +259,17 @@ width: 100%;
 }
 
 .card-product{
+  box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%);
   text-align: center;
+  transition: 0.3s;
+}
+.card-product:hover{
+  box-shadow: 0 8px 16px 0 rgb(0 0 0 / 20%);
 }
 
 .card-product img{
   width: 50%;
+  height: 80%;
 }
 
 .col-product{

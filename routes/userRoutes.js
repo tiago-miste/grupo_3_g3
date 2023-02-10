@@ -13,7 +13,7 @@ router.get("/register", guestMiddleware, usersController.register);
 router.post("/register/create", uploadFile.single("avatar"), validations, usersController.processRegister);
 
 //formualrio de login
-router.get("/login", usersController.login);
+router.get("/login", guestMiddleware, usersController.login);
 
 //procesar el login
 router.post("/login/create", validateLoginForm, usersController.loginProcess);
