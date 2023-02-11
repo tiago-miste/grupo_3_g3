@@ -21,7 +21,7 @@
                         srcset="">
                     <br><br>
                     </form>
-                    <!-- <a href="/products/detail/delete/<%= product.id %>" class="btn btn-outline-danger btn-block">Eliminar</a> -->
+                    
                 </div>
                 <div class="col-md-8">
                     <div>
@@ -38,7 +38,7 @@
                     <div>
                         <button><a href="/cart">Agregar al Carrito</a></button>
                         <a href="/products" class="btn btn-outline-success btn-block">Regresar</a>
-                        <% if (locals.userLogged.id_rol==1) { %>
+                        <% if (locals.userLogged && locals.userLogged.id_rol==1) { %>
                             <a href="/products/detail/edit/<%= product.id %>"
                                 class="btn btn-outline-primary btn-block">Editar</a>
                             <form action="/products/detail/delete/<%= product.id %>?_method=DELETE" method="POST"
