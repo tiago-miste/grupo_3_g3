@@ -21,5 +21,6 @@ router.get('/login', guestMiddleware, mainController.login)
 router.get('/cart', authMiddleware, mainController.cart)
 
 //
+router.get('/devTeam', mainController.devTeam)
 
 module.exports = router;

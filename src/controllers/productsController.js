@@ -61,13 +61,7 @@ update: async function (req,res) {
         .then(() => res.redirect('/products'))
         .catch(error => res.send(error)) 
 },
-// delete: async function (req, res) {
-//     try
-//     {const Product = await Products.findByPk(req.params.id)
-//      res.render('productsDelete', {Product})
-//     }
-//     catch(e) {console.log(e)}     
-// },
+
 destroy: async function (req, res) {
     try {
         const deleted = await Products.destroy({where: {id:req.params.id}, force: true})

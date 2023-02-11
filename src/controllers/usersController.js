@@ -7,7 +7,7 @@ const User = db.User
 
 const controller = {
     register: (req, res) => {
-        console.log(req)
+
         return res.render('register');
     },
     processRegister: async (req, res) => {
@@ -143,6 +143,19 @@ const controller = {
         res.locals.userLogged = undefined
         res.clearCookie('connect.sid');
         return res.redirect('/');
+    },
+
+    list: async (req, res) => {
+        const users = await User.findAll({ where: { id_rol: 2 } })
+        res.render('usuarios', {users})
+    },
+
+    destroy: async function (req, res) {
+        try {
+            const deleted = await User.destroy({where: {id:req.params.id}, force: true})
+            res.redirect('/users')
+        }
+        catch (e) {console.log(e)}
     }
 
 }

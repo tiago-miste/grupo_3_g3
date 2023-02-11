@@ -6,6 +6,7 @@ const authMiddleware = require("../middlewares/authMiddleware");
 const validateLoginForm = require("../middlewares/validateLoginForm")
 const validateEditUser = require('../middlewares/validateEditUser')
 const usersController = require('../src/controllers/usersController')
+const adminMiddleware = require('../middlewares/adminMiddleware')
 
 // formulario de registro
 router.get("/register", guestMiddleware, usersController.register);
@@ -28,5 +29,9 @@ router.put('/profile/edit/update/:id', validateEditUser, usersController.update)
 
 //logout
 router.post("/logout", usersController.logout)
+
+//usuarios para admin
+router.get("/users", authMiddleware, adminMiddleware, usersController.list)
+router.delete('/user/delete/:id', adminMiddleware, usersController.destroy);
 
 module.exports = router

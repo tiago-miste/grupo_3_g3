@@ -40,10 +40,10 @@
                         <a href="/products" class="btn btn-outline-success btn-block">Regresar</a>
                         <% if (locals.userLogged && locals.userLogged.id_rol==1) { %>
                             <a href="/products/detail/edit/<%= product.id %>"
-                                class="btn btn-outline-primary btn-block">Editar</a>
+                                class="btn btn-outline-primary btn-block" style="font-size: larger; color: black;">Editar</a>
                             <form action="/products/detail/delete/<%= product.id %>?_method=DELETE" method="POST"
                                 style="display: inline-flex ;margin-top: 2px;">
-                                <button type="submit" class="btn btn-outline-danger btn-block">Eliminar</button>
+                                <button type="submit" class="btn btn-outline-danger btn-block" style="font-size: larger; color: white; background-color: brown;">Eliminar</button>
                                 <% } %>
 
                     </div>
