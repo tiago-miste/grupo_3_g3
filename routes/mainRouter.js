@@ -2,6 +2,7 @@
 const express = require('express');
 const router = express.Router();
 const guestMiddleware = require("../middlewares/guestMiddleware");
+const authMiddleware = require("../middlewares/authMiddleware");
 // ************ Controller Require ************
 
 const mainController = require('../src/controllers/mainController');
@@ -17,7 +18,7 @@ router.get('/login', guestMiddleware, mainController.login)
 
 //
 
-router.get('/cart', mainController.cart)
+router.get('/cart', authMiddleware, mainController.cart)
 
 //
 

@@ -1,24 +1,42 @@
 <!DOCTYPE html>
-<head>
 
+<head>
+    
 </head>
 <div class="imagen-logo">
-     <a href="/"><img src="/images/logoredux.jpg" alt="Logo de Canski"></a>
- </div>
- 
-     <div class="search-bar">
-     <input type="text" placeholder="Busca aqui...">
-     <i class="fa-solid fa-magnifying-glass"></i>
-     </div>   
+    <a href="/"><img src="/images/logoredux.jpg" alt="Logo de Canski"></a>
+</div>
 
-     <div class="top-header" style="display: inline">
-     <i class="fa-solid fa-envelope" style="color: white;"></i>
-     <a href="/login" style="text-decoration: none;">Log In</a>
-     <i class="fa-solid fa-user" style="color: white;"></i>
-     <a href="/register" style="text-decoration: none;">Register</a>
-     <i class="fa-brands fa-product-hunt" style="color: white;"></i>
-     <a href="/products" style="text-decoration: none;">Productos</a>
-     <i class="fa-solid fa-cart-shopping" style="color: white;"></i>
-     <a href="/cart" style="text-decoration: none;">Comprar</a>
-     <i class="fa-brands fa-product-hunt" style="color: white;"></i>
-     <a href="/products/create" style="text-decoration: none;">Crear producto</a>
+
+
+
+<div class="search-bar">
+    <input type="text" placeholder="Busca aqui...">
+    <i class="fa-solid fa-magnifying-glass"></i>
+</div>
+
+<div class="top-header" style="display: inline; margin-right: 2%;">
+    <% if (locals.isLogged) { %>
+
+    <a href="/profile"><img style="width: 45px; height: 45px; border: 1px solid var(--blanco); border-radius: 50%; object-fit: cover;" id="user-logged" src="/images/<%= locals.userLogged.img %>" ></a>
+        <a href="/profile" style="text-decoration: none; color: white;"><%= locals.userLogged.nombre %></a>
+        <!-- <i class="fa-solid fa-user" style="color: white;"></i>
+        <a href="/register" style="text-decoration: none;">Register</a> -->
+
+        <% } else { %>
+
+            <i class="fa-solid fa-envelope" style="color: white;"></i>
+            <a href="/login" style="text-decoration: none; color: white;">Log In</a>
+            <i class="fa-solid fa-user" style="color: white;"></i>
+            <a href="/register" style="text-decoration: none; color: white;">Register</a>
+
+            <% } %>
+
+                <i class="fa-brands fa-product-hunt" style="color: white;"></i>
+                <a href="/products" style="text-decoration: none; color: white;">Productos</a>
+                <i class="fa-solid fa-cart-shopping" style="color: white;"></i>
+                <a href="/cart" style="text-decoration: none; color: white;">Carrito</a>
+                <% if (locals.isLogged && locals.userLogged.id_rol==1) { %>
+                    <i class="fa-brands fa-product-hunt" style="color: white;"></i>
+                    <a href="/products/create" style="text-decoration: none; color: white;">Crear producto</a>
+                    <% } %>

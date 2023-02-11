@@ -2,10 +2,11 @@
 
 <head><%- include('./partials/head.ejs') %></head>
 <link rel="stylesheet" href="/index.css">
+
 <body>
     <header><%- include('./partials/header.ejs') %></header>
     <div><img style="width: 100%;" src="/images/bannertienda.jpg" alt=""></div>
-        
+
     <main>
         <div class="container main-container" style="margin-top: -20px;">
 
@@ -16,28 +17,36 @@
 
             <div class="singleProduct">
                 <div class="col-md-4">
-                    <img style="width: 100%;" src="/images/<%= product.img %> " class="img-fluid" [alt]="product.nombre" srcset="">
+                    <img style="width: 100%;" src="/images/<%= product.img %> " class="img-fluid" [alt]="product.nombre"
+                        srcset="">
                     <br><br>
                     </form>
                     <!-- <a href="/products/detail/delete/<%= product.id %>" class="btn btn-outline-danger btn-block">Eliminar</a> -->
                 </div>
                 <div class="col-md-8">
-                    <div><h3><%= product.descripcion %></h3></div>
-                        
-                        <p style="
+                    <div>
+                        <h3>
+                            <%= product.descripcion %>
+                        </h3>
+                    </div>
+
+                    <p style="
                         font-size: xxx-large;
                     ">
-                            $<%= product.precio %>
-                        </p>
-                        <div>
-                            <button><a href="/cart">Agregar al Carrito</a></button>
-                            <a href="/products" class="btn btn-outline-success btn-block">Regresar</a>
+                        $<%= product.precio %>
+                    </p>
+                    <div>
+                        <button><a href="/cart">Agregar al Carrito</a></button>
+                        <a href="/products" class="btn btn-outline-success btn-block">Regresar</a>
+                        <% if (locals.userLogged.id_rol==1) { %>
                             <a href="/products/detail/edit/<%= product.id %>"
                                 class="btn btn-outline-primary btn-block">Editar</a>
                             <form action="/products/detail/delete/<%= product.id %>?_method=DELETE" method="POST"
                                 style="display: inline-flex ;margin-top: 2px;">
                                 <button type="submit" class="btn btn-outline-danger btn-block">Eliminar</button>
-                        </div>
+                                <% } %>
+
+                    </div>
                 </div>
 
             </div>
