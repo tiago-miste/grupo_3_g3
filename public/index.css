@@ -259,12 +259,13 @@ width: 100%;
 }
 
 .card-product{
-  box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%);
+  box-shadow: 0 8px 12px 0 rgb(0 0 0 / 50%);
   text-align: center;
   transition: 0.3s;
+  border: solid #112d2e 1px;
 }
 .card-product:hover{
-  box-shadow: 0 8px 16px 0 rgb(0 0 0 / 20%);
+  box-shadow: 0 16px 24px 0 rgb(0 0 0 / 50%);
 }
 
 .card-product img{
