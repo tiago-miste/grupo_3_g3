@@ -29,10 +29,14 @@ app.set('view engine', 'ejs');
 const mainRouter = require('./routes/mainRouter')
 const productsRouter = require('./routes/productsRouter');
 const userRoutes = require('./routes/userRoutes');
+const apiUsersRouter = require('./routes/apiUsersRouter.js')
+const apiProductsRouter = require('./routes/apiProductsRouter.js')
 
 app.use('/', mainRouter);
 app.use(productsRouter);
 app.use(userRoutes);
+app.use('/api/users', apiUsersRouter);
+app.use('/api/products', apiProductsRouter)
 
 app.use ( async (req, res, next) => {
     res.status(404).render('notfound');
