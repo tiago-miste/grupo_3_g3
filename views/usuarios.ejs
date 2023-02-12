@@ -11,13 +11,15 @@
     <header>
         <%- include('./partials/header') %>
     </header>
-    <!-- <div><img style="width: 100%;"  src="/images/bannerperfil.jpg" alt=""></div> -->
-
+    
+    <br>
+    <div style="text-align: center;"><h1>Usuarios en la Base de Datos</h1></div>
     <br>
 
     <div class="contenedorPerfil" style="display: flex; flex-wrap: wrap;">
+        
         <% users.forEach(user=> { %>
-            <div class="contenedorPerfilSub">
+            <div style="margin-bottom: 1%;" class="contenedorPerfilSub">
                 <div class="contenedorNombre">
                     <h2 class="bienvenidaUsuario"><%= user.nombre %>
                             <%= user.apellido %>

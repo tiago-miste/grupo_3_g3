@@ -36,7 +36,7 @@
                         $<%= product.precio %>
                     </p>
                     <div>
-                        <button><a href="/cart">Agregar al Carrito</a></button>
+                        <button><a style="text-decoration: none; font-size: larger; color: black;" href="/cart">Agregar al Carrito</a></button>
                         <a href="/products" class="btn btn-outline-success btn-block">Regresar</a>
                         <% if (locals.userLogged && locals.userLogged.id_rol==1) { %>
                             <a href="/products/detail/edit/<%= product.id %>"
