@@ -9,19 +9,26 @@ window.onload = function() {
 
         let nombre = document.querySelector('#name')
         let descripcion = document.querySelector('#description')
+        let precio = document.querySelector('#price')
     
-        if (nombre.value.length < 5){
-            errores.push('El nombre debe tener 5 o mas caracteres')
+        if (nombre.value.length < 2){
+            errores.push('El nombre debe tener 2 o mas caracteres')
             nombre.classList.add('is-invalid')
         }else{
             nombre.classList.remove('is-invalid')
         }
 
-        if (descripcion.value.length < 20){
-            errores.push('La descripcion debe tener 20 o mas caracteres')
+        if (descripcion.value.length < 3){
+            errores.push('La descripcion debe tener 3 o mas caracteres')
             descripcion.classList.add('is-invalid')
         }else{
             descripcion.classList.remove('is-invalid')
+        }
+        if (precio.value.length <= 0){
+            errores.push('El precio no debe estar vacio')
+            precio.classList.add('is-invalid')
+        }else{
+            precio.classList.remove('is-invalid')
         }
 
         if (errores.length > 0){

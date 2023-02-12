@@ -1,63 +1,84 @@
-<head><%- include('./partials/head.ejs') %>
-    <link rel="stylesheet" href="/index.css">
+<!DOCTYPE html>
+<head>
+    <%- include('./partials/head.ejs') %>
+        <link rel="stylesheet" href="/productsForm.css">
 </head>
 
-    <body>
-            <div class="container main-container" style="margin-top: 100px;">
-                <div class="h-100 p-5 bg-light border rounded-3 animated fadeIn">
-                    <div class="card container animated fadeIn">
-                        <div class="row animated fadeIn">
-                            <div class="col-md-12">
-                                <div class="well well-sm">
-                                    <!-- <form class="form-horizontal" method="post" action="/products/detail/update/<%= Product.id %>?_method=PUT" enctype="multipart/form-data"> -->
-                                        <form
-                                        class="form-horizontal" 
-                    action="/products/detail/update/<%= Product.id %>?_method=PUT" 
-                    method="POST" id="form-create"
-                    enctype="multipart/form-data">
-                                        
-                                            <br>
-                                            <legend class="text-center header">Actualizar producto</legend>
-                                            <br><br>
-                                            <div class="form-group">
-                                                <span class="col-md-1 col-md-offset-2 text-center"></span>
-                                                <div class="col-md-4">
-                                                    <input id="name" name="name" type="text" placeholder="Nombre.." class="form-control" value="<%= Product.nombre %>">
-                                                </div>
-                                            </div>
-                                            <div class="form-group mt-2">
-                                                <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-pencil-square-o bigicon"></i></span>
-                                                <div class="col-md-12">
-                                                    <textarea class="form-control" id="description" name="description" placeholder="Descripcion" rows="7" ><%= Product.descripcion %></textarea>
-                                                </div>
-                                            </div>
-    
-                    
-                                            <div class="form-group mt-2">
-                                                <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-envelope-o bigicon"></i></span>
-                                                <div class="col-md-4">
-                                                    <input class="form-control" id="imgFile" name="imgFile" type="file" />
-                                                </div>
-                                            </div>
-                    
-                                            <div class="form-group mt-2">
-                                                <span class="col-md-1 col-md-offset-2 text-center"></span>
-                                                <div class="col-md-2">
-                                                    <input id="price" name="price" type="text" placeholder="Precio" class="form-control" value="<%= Product.precio %>">
-                                                </div>
-                                            </div>
-    
-                                            <div class="form-group mt-3 mb-3">
-                                                <div class="col-md-12 text-center">
-                                                    <button type="submit" class="btn btn-success btn-lg">Actualizar</button>
-                                                </div>
-                                            </div>
-                                
-                                    </form>
-                                </div>
-                            </div>
+<body>
+    <header>
+        <%- include('./partials/header') %>
+    </header>
+    <div><img style="width: 100%;" src="/images/bannertienda2.jpg" alt=""></div>
+    <% if (locals.errors) { %>
+        <% for( let oneError in errors) { %>
+            <p style="color: darkred;"> <%= errors[oneError].msg %></p>
+        <% } %>
+    <% } %>
+    <div class="main-container">
+        <div class="h-100 p-5 bg-light border rounded-3 animated fadeIn">
+            <div class="card container animated fadeIn">
+                <div class="row animated fadeIn">
+                    <div class="col-md-12">
+                        <div class="well well-sm">
+                            <ul class="errores"></ul>
+                            <form class="form-horizontal" action="/products/detail/update/<%= Product.id %>?_method=PUT" 
+                                method="POST"
+                                enctype="multipart/form-data">
+                                <fieldset>
+                                    <br>
+                                    <legend style="font-style: oblique;" class="text-center header" >Editar Producto</legend>
+                                    <br><br>
+                                    <div class="form-group">
+                                        <span class="col-md-1 col-md-offset-2 text-center"></span>
+                                        <div class="col-md-4">
+                                            <h6>Nombre del Producto</h6>
+                                            <input id="name" name="name" type="text" placeholder="Nombre.."
+                                                class="form-control" style="margin: 2%; font-size: x-large;" value="<%= Product.nombre %>">
+                                        </div>
+                                    </div>
+                                    <div class="form-group mt-2">
+                                        <span class="col-md-1 col-md-offset-2 text-center"><i
+                                                class="fa fa-pencil-square-o bigicon"></i></span>
+                                        <div class="col-md-12">
+                                            <h6>Descripcion</h6>
+                                            <input type="text" style="margin: 2%; font-size: x-large;" class="form-control" id="description" name="description"
+                                                placeholder="Descripcion" rows="7" value="<%= Product.descripcion %>">
+                                        </div>
+                                    </div>
+
+
+                                    <div class="form-group mt-2">
+                                        <span class="col-md-1 col-md-offset-2 text-center"><i
+                                                class="fa fa-envelope-o bigicon"></i></span>
+                                        <div class="col-md-4">
+                                            <h6>Imagen del Producto</h6>
+                                            <input style="margin: 2%; font-size: x-large;" class="form-control" id="imgFile" name="imgFile" type="file">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group mt-2">
+                                        <span class="col-md-1 col-md-offset-2 text-center"></span>
+                                        <div class="col-md-2">
+                                            <h6>Precio</h6>
+                                            <input style="margin: 2%; font-size: x-large;" id="price" name="price" type="text" placeholder="Precio" class="form-control" value="<%= Product.precio %>">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group mt-3 mb-3">
+                                        <div class="col-md-12 text-center">
+                                            <button type="submit" class="btn btn-primary btn-lg" style="margin: 2%; font-size: x-large;">Editar</button>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </form>
                         </div>
                     </div>
                 </div>
-                </body>
-                <%- include('./partials/footer.ejs') %>
+            </div>
+        </div>
+    </div>
+    <script src="/js/productsFormValidation.js"></script>
+</body>
+<footer>
+    <%- include('./partials/footer.ejs') %>
+</footer>

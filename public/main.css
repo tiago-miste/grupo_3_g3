@@ -25,6 +25,14 @@ header{
   align-items: center;
 }
 
+#user-logged {
+	width: 30px;
+	height: 30px;
+	border: 1px solid var(--blanco);
+	border-radius: 50%;
+	object-fit: cover;
+}
+
 .menu a{
   color: #ebebeb;
   text-decoration: none;
