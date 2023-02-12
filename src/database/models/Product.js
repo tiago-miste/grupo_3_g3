@@ -22,7 +22,7 @@ function productos (sequelize, dataTypes) {
             type: dataTypes.INTEGER
         },
         img: {
-        type: dataTypes.BLOB
+        type: dataTypes.TEXT
         }}
 
     const config = {
@@ -31,6 +31,13 @@ function productos (sequelize, dataTypes) {
     }
 
     const Product = sequelize.define (alias, cols, config)
+
+    Product.associate = function (models) {
+        Product.belongsTo (models.Category, {
+            as: 'categoria',
+            foreignKey: 'id_categoria'
+        })
+    }
 
     return Product
 }

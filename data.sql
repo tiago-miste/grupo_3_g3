@@ -29,12 +29,12 @@ INSERT INTO roles (id, nombre)
 VALUES (1, 'administrador');
 INSERT INTO roles (id, nombre)
 VALUES (2, 'usuario');
-INSERT INTO usuarios (id, id_rol, nombre, apellido, email, contraseña, direccion, fecha_nacimiento)
-VALUES (DEFAULT, 1, 'Juan', 'Perez', 'juanperez@gmail.com', 1234, 'Av Santa Fe 2550', '1986-02-16');
-INSERT INTO usuarios (id, id_rol, nombre, apellido, email, contraseña, direccion, fecha_nacimiento)
-VALUES (DEFAULT, 2, 'Luis', 'Gonzalez', 'luisgonzalez@gmail.com', 1234, 'Juncal 2950', '1994-12-07');
-INSERT INTO usuarios (id, id_rol, nombre, apellido, email, contraseña, direccion, fecha_nacimiento)
-VALUES (DEFAULT, 2, 'Carlos', 'Gomez', 'carlosgomez@gmail.com', 1234, 'Av Pueyrredon 1250', '1987-08-25');
+INSERT INTO usuarios (id, id_rol, usuario, nombre, apellido, email, password, direccion, fecha_nacimiento)
+VALUES (DEFAULT, 1, 'Juan1986', 'Juan', 'Perez', 'juanperez@gmail.com', 1234, 'Av Santa Fe 2550', '1986-02-16');
+INSERT INTO usuarios (id, id_rol, usuario, nombre, apellido, email, password, direccion, fecha_nacimiento)
+VALUES (DEFAULT, 2, 'Luis1994', 'Luis', 'Gonzalez', 'luisgonzalez@gmail.com', 1234, 'Juncal 2950', '1994-12-07');
+INSERT INTO usuarios (id, id_rol, usuario, nombre, apellido, email, password, direccion, fecha_nacimiento)
+VALUES (DEFAULT, 2, 'Carlos1987', 'Carlos', 'Gomez', 'carlosgomez@gmail.com', 1234, 'Av Pueyrredon 1250', '1987-08-25');
 INSERT INTO facturas (id, id_usuario, total, fecha_factura, direccion_factura)
 VALUES (DEFAULT, 2, 13000, '2023-01-08 10:00', 'Av Santa Fe 2550');
 INSERT INTO facturas (id, id_usuario, total, fecha_factura, direccion_factura)
