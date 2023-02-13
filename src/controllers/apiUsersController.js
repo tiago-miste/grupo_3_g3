@@ -26,7 +26,8 @@ module.exports = {
       id: user.id,
       nombre: user.nombre,
       apellido: user.apellido,
-      email: user.email
+      email: user.email,
+      image: `http://localhost:3002/images/${user.img}`
     }
     return res.json(response)
     }

@@ -17,20 +17,22 @@ module.exports = {
           nombre: product.nombre,
           descripcion: product.descripcion,
           associations: [product.categoria],
-          detail: `/api/products/${product.id}`
+          detail: `/api/products/${product.id}`,
+          image: `http://localhost:3002/images/${product.img}`
         }
         return productDetail
       })
       return res.json(response)
     },
     detail: async (req, res) => {
-      let product = await db.Product.findByPk(req.params.id)
+      
+      let product = await db.Product.findByPk(req.params.id ,{include:['categoria']})
       let response = {
         id: product.id,
         nombre: product.nombre,
-        associations: [],
+        associations: [product.categoria],
         descripcion: product.descripcion,
-        image: `localhost:3002/images/${product.img}`
+        image: `http://localhost:3002/images/${product.img}`
       }
       return res.json(response)
       }
