@@ -25,7 +25,7 @@ router.get("/profile", authMiddleware, usersController.profile);
 
 //edicion de usuario
 router.get('/profile/edit/:id', authMiddleware, usersController.edit);
-router.put('/profile/edit/update/:id', validateEditUser, usersController.update);
+router.put('/profile/edit/update/:id', uploadFile.single("avatar"), validateEditUser, usersController.update);
 
 //logout
 router.post("/logout", usersController.logout)

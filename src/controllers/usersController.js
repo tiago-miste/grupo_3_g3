@@ -23,7 +23,9 @@ const controller = {
         if (userInDB) {
             return res.render('register', {
                 errors: {
-                    msg: 'Este email ya está registrado'
+                    email: {
+                         msg: 'Este email ya está registrado'
+                        }
                 },
                 oldData: req.body
             });
@@ -107,6 +109,7 @@ const controller = {
     },
 
     update: async function (req,res) { 
+        
         let userToEdit = await User.findOne({
             where: {
                 id: req.params.id
@@ -121,7 +124,8 @@ const controller = {
             User.update(
                 {
                     usuario: req.body.usuario,
-                    direccion: req.body.direccion
+                    direccion: req.body.direccion,
+                    img: req.file ? req.file.filename : userToEdit.img
 
                 },
                 {
