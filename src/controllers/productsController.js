@@ -22,6 +22,7 @@ create: function (req,res) {
         descripcion: req.body.description,
         precio: req.body.price,
         img: req.file.filename,
+        id_categoria: req.body.categoria
     })
     .then(() => res.redirect('/products'))
 },
