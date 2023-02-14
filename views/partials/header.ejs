@@ -11,8 +11,10 @@
 
 
 <div class="search-bar">
-    <input type="text" placeholder="Busca aqui...">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <form action="/products/search" method="post">
+    <input type="text" name="buscador" placeholder="Busca aqui...">
+    <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+</form>
 </div>
 
 <div class="top-header" style="display: inline; margin-right: 2%;">
@@ -20,8 +22,7 @@
 
     <a href="/profile"><img style="width: 45px; height: 45px; border: 1px solid var(--blanco); border-radius: 50%; object-fit: cover;" id="user-logged" src="/images/<%= locals.userLogged.img %>" ></a>
         <a href="/profile" style="text-decoration: none; color: white;"><%= locals.userLogged.nombre %></a>
-        <!-- <i class="fa-solid fa-user" style="color: white;"></i>
-        <a href="/register" style="text-decoration: none;">Register</a> -->
+     
 
         <% } else { %>
 

@@ -6,6 +6,8 @@ const adminMiddleware = require('../middlewares/adminMiddleware')
 const authMiddleware = require("../middlewares/authMiddleware");
 
 router.get('/products', productsController.list);
+router.post('/products/search', productsController.search)
+
 router.get('/products/detail/:id', productsController.detail);
 router.get('/products/create', authMiddleware ,adminMiddleware, productsController.add);
 router.post('/products', uploadFile.single("imgFile"), productsController.create);

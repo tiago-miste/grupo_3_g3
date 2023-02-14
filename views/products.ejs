@@ -7,9 +7,15 @@
         <div><img style="width: 100%;"  src="/images/bannerproductos.jpg" alt=""></div>
      
         <hr>
-
-        <div class="row-products">
-
+        <% if (products.length == 0) { %>
+            <br>
+            <br>
+            <div style="text-align: center;"><h1>No se encontraron Productos</h1></div>
+            <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+            <% } else { %> 
+            <div class="row-products">
+           
+           
             <% products.forEach(product=> { %>
 
                 <div class="col-product">
@@ -28,7 +34,7 @@
                 </div>
 
                 <% }); %>
-
+                <% } %>
         </div>
     </div>
     <footer> <%- include('./partials/footer.ejs') %> </footer>

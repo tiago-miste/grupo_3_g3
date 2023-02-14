@@ -54,14 +54,7 @@ header{
   padding-right: 5px;
   color: #666666;
 }
-/*
-azul: #1f1b49
-blanco: #ebebeb
-verde: #112d2e
-bordo: #3b0114
-gris: #666666
-otro blanco: #ffffff
-*/
+
 
 .producto-precio {
   display: flex;

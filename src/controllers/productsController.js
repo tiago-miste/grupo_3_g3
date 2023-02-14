@@ -1,5 +1,6 @@
 const db = require ('../database/models')
 const sequelize = db.Sequelize
+const Sequelize = require('sequelize');
 
 const Products = db.Product
 
@@ -9,6 +10,18 @@ list: async (req, res) => {
     const products = await db.Product.findAll()
     res.render('products', {products})
 },
+
+search: async(req, res) => {
+  
+    const products = await db.Product.findAll(
+        {
+            where: { nombre: { [Sequelize.Op.like]: `%${req.body.buscador}%`} },
+           }
+    )
+    
+    res.render('products', {products})
+},
+
 detail: async (req, res) => {
        const product = await db.Product.findByPk(req.params.id)
        res.render('product', {product})
@@ -34,7 +47,7 @@ edit: async function(req, res) {
     catch(e) {console.log(e)}
 },
 update: async function (req,res) { 
-    console.log(req.body)
+   
     let productToEdit = await Products.findOne({
         where: {
             id: req.params.id
