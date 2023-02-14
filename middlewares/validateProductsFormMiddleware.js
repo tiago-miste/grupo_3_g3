@@ -1,12 +1,12 @@
 const path = require('path');
-const { check } = require ('express-validator')
+const { body } = require ('express-validator')
 
 module.exports = 
-[ check ('name').notEmpty().withMessage('Debes completar el nombre').bail()
+[ body ('name').notEmpty().withMessage('Debes completar el nombre').bail()
                 .isLength({ min: 3 }).withMessage('El nombre debe ser mas largo'),
-  check ('description').isLength({ min: 4 }).withMessage('La descripcion debe ser mas larga'),
+                body ('description').isLength({ min: 3 }).withMessage('La descripcion debe ser mas larga'),
   
-check ('imgFile').custom((value, { req }) => {
+                body ('imgFile').custom((value, { req }) => {
   let file = req.file;
   let acceptedExtensions = [ '.jpg', '.jpeg' , '.png', '.JPG', '.PNG', '.JPEG'];
 

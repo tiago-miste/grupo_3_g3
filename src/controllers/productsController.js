@@ -1,3 +1,4 @@
+const { validationResult } = require('express-validator');
 const db = require ('../database/models')
 const sequelize = db.Sequelize
 const Sequelize = require('sequelize');
@@ -30,6 +31,14 @@ add: function (req, res) {
     res.render('productsFormCreate')   
 },
 create: function (req,res) {
+    const resultValidation = validationResult(req);
+
+        if (resultValidation.errors.length > 0) {
+            return res.render('productsFormCreate', {
+                errors: resultValidation.mapped(),
+                oldData: req.body
+            });
+        }
     Products.create({
         nombre: req.body.name,
         descripcion: req.body.description,

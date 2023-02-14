@@ -23,6 +23,11 @@
                                     
                                     <legend style="font-style: oblique;" class="text-center header">Agregar producto</legend>
                                     <br>
+                                    <% if (locals.errors) { %>
+                                        <% for( let oneError in errors) { %>
+                                            <p style="color: darkred;"> <%= errors[oneError].msg %></p>
+                                        <% } %>
+                                    <% } %>
                                     <div class="form-group">
                                         <span class="col-md-1 col-md-offset-2 text-center"></span>
                                         <div style="margin: 2%;" class="col-md-4">
