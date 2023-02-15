@@ -109,6 +109,15 @@ const controller = {
     },
 
     update: async function (req,res) { 
+
+        const resultValidation = validationResult(req);
+
+        if (resultValidation.errors.length > 0) {
+            return res.render('userFormEdit', {
+                errors: resultValidation.mapped(),
+                user: req.session.userLogged
+            });
+        }
         
         let userToEdit = await User.findOne({
             where: {

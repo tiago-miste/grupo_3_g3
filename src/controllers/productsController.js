@@ -56,6 +56,14 @@ edit: async function(req, res) {
     catch(e) {console.log(e)}
 },
 update: async function (req,res) { 
+    const resultValidation = validationResult(req);
+
+        if (resultValidation.errors.length > 0) {
+            return res.render('productsFormEdit', {
+                errors: resultValidation.mapped(),
+                Product: await Products.findByPk(req.params.id)
+            });
+        }
    
     let productToEdit = await Products.findOne({
         where: {

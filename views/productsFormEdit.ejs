@@ -9,11 +9,7 @@
         <%- include('./partials/header') %>
     </header>
     <div><img style="width: 100%;" src="/images/bannertienda2.jpg" alt=""></div>
-    <% if (locals.errors) { %>
-        <% for( let oneError in errors) { %>
-            <p style="color: darkred;"> <%= errors[oneError].msg %></p>
-        <% } %>
-    <% } %>
+    
     <div class="main-container">
         <div class="h-100 p-5 bg-light border rounded-3 animated fadeIn">
             <div class="card container animated fadeIn">
@@ -27,7 +23,13 @@
                                 <fieldset>
                                     <br>
                                     <legend style="font-style: oblique;" class="text-center header" >Editar Producto</legend>
-                                    <br><br>
+                                    <br>
+                                    <% if (locals.errors) { %>
+                                        <% for( let oneError in errors) { %>
+                                            <p style="color: darkred; text-align: center;"> <%= errors[oneError].msg %></p>
+                                        <% } %>
+                                    <% } %>
+                                    <br>
                                     <div class="form-group">
                                         <span class="col-md-1 col-md-offset-2 text-center"></span>
                                         <div class="col-md-4">

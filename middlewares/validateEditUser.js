@@ -12,7 +12,7 @@ module.exports = [
             let acceptedExtensions = [ '.jpg', '.jpeg' , '.png', '.JPG', '.PNG', '.JPEG'];
     
             if (!file){
-                throw new Error('Tienes que subir una imagen');
+               
             } else {
                 let fileExtension = path.extname(file.originalname);
                 if (!acceptedExtensions.includes(fileExtension)) {
